@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import ReactTable from "react-table-v6";
@@ -48,7 +48,7 @@ function TrackDetails(props) {
         kart: record.kart,
         time: record[track]
       }
-    }), [props.records]
+    }), [props.records, track]
   );
 
   return (

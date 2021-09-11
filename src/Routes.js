@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import TrackDetails from "./views/TrackDetails";
 import Records from "./views/Records";
+import Player from "./views/Player";
 
 function Routes(props) {
 
@@ -9,6 +10,9 @@ function Routes(props) {
     <Switch>
       <Route path="/tracks/:track">
         <TrackDetails records={props.records} />
+      </Route>
+      <Route path="/players/:player">
+        <Player records={props.records} />
       </Route>
       <Route path="/">
         <Records records={props.records} />

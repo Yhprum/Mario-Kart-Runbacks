@@ -4,6 +4,7 @@ import "./App.css";
 import Papa from "papaparse";
 import data from "./data/runbacks.csv";
 import Routes from "./Routes";
+import Header from "./views/Header";
 
 function App() {
   const [records, setRecords] = useState([]);
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Routes records={records} />
     </div>
   );
