@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Row, Col, Card } from "react-bootstrap";
 import tracks from "../data/maps.json";
+import {subtractDuration} from "../utils/utils";
 
 function Player(props) {
 
@@ -46,6 +47,7 @@ function Player(props) {
                 <tr>
                   <th>Track</th>
                   <th>Fastest Time</th>
+                  <th>vs. Record</th>
                   <th>Winrate (Driver)</th>
                   <th>Winrate (Items)</th>
                   <th>Overall</th>
@@ -76,10 +78,14 @@ function Player(props) {
                       if (props.records[2 * i][track] > props.records[2 * i + 1][track]) itemWins++;
                     }
                   }
+                  let record = props.records.reduce((prev, cur) => cur[track] < prev ? cur[track] : prev)
+                  let difference = subtractDuration(fastestDriver[track], record) ;
+                  difference = difference === 0 ? "-" : "+" + difference.toFixed(3);
                   return (
                     <tr key={track}>
                       <td>{track}</td>
                       <td>{fastestDriver[track]}</td>
+                      <td>{difference}</td>
                       <td>{driverWins}/{driverGames}</td>
                       <td>{itemWins}/{itemGames}</td>
                       <td>{((driverWins + itemWins) / (driverGames + itemGames) * 100).toFixed(0)}%</td>

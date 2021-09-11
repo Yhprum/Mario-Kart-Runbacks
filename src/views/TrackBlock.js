@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { withRouter } from "react-router";
 import { Card, Row, Col } from "react-bootstrap";
 import { trackSort } from "../utils/utils";
 
 function TrackBlock(props) {
 
-  const [times, setTimes] = useState([]);
-
-  useEffect(() => {
-    setTimes(props.data.sort(trackSort(props.track)).slice(0, 5));
-  }, [props.data, props.track]);
+  let times = props.data.sort(trackSort(props.track)).slice(0, 5);
 
   return (
     <Card>

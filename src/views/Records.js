@@ -1,22 +1,9 @@
-import React, {useEffect, useState} from "react";
-import data from "../data/runbacks.csv";
+import React from "react";
 import tracks from "../data/maps.json";
-import Papa from "papaparse";
 import { Row, Col } from "react-bootstrap";
 import TrackBlock from "./TrackBlock";
 
-function Records() {
-  const [records, setRecords] = useState([]);
-
-  useEffect(() => {
-    Papa.parse(data, {
-      download: true,
-      header: true,
-      complete: function (input) {
-        setRecords(input.data);
-      }
-    });
-  },[]);
+function Records(props) {
 
   return (
     <div className="container">
@@ -29,7 +16,7 @@ function Records() {
               {tracks[cup].map(track => {
                 return (
                   <Col key={track}>
-                    <TrackBlock track={track} data={records} />
+                    <TrackBlock track={track} data={props.records} />
                   </Col>
                 );
               })}
