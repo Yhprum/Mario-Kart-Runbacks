@@ -78,8 +78,8 @@ function Player(props) {
                       if (props.records[2 * i][track] > props.records[2 * i + 1][track]) itemWins++;
                     }
                   }
-                  let record = props.records.reduce((prev, cur) => cur[track] < prev ? cur[track] : prev)
-                  let difference = subtractDuration(fastestDriver[track], record) ;
+                  let record = props.records.map(r => r[track]).reduce((prev, cur) => cur < prev ? cur : prev);
+                  let difference = subtractDuration(fastestDriver[track], record);
                   difference = difference === 0 ? "-" : "+" + difference.toFixed(3);
                   return (
                     <tr key={track}>

@@ -5,7 +5,7 @@ import { trackSort } from "../utils/utils";
 
 function TrackBlock(props) {
 
-  let times = props.data.sort(trackSort(props.track)).slice(0, 5);
+  let times = props.data.slice(0).sort(trackSort(props.track)).slice(0, 5);
 
   return (
     <Card>
