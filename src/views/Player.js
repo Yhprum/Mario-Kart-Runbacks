@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Row, Col, Card } from "react-bootstrap";
 import tracks from "../data/maps.json";
 import { subtractDuration } from "../utils/utils";
+import Winrate from "../components/Winrate";
 
 function Player(props) {
 
@@ -81,9 +82,9 @@ function Player(props) {
               </thead>
               <tbody>
               <tr>
-                <td>{(driver/driverGames.length*100).toFixed(0)}%</td>
-                <td>{(items/itemsGames.length*100).toFixed(0)}%</td>
-                <td>{((driver+items)/(driverGames.length+itemsGames.length)*100).toFixed(0)}%</td>
+                <td><Winrate numerator={driver} denominator={driverGames.length} /></td>
+                <td><Winrate numerator={items} denominator={itemsGames.length} /></td>
+                <td><Winrate numerator={driver + items} denominator={driverGames.length + itemsGames.length} /></td>
               </tr>
               </tbody>
             </table>
