@@ -14,6 +14,49 @@ function Player(props) {
   let itemsGames = props.records.filter(record => record.items === player && record.result !== "desync");
   let items = itemsGames.reduce((sum, record) => sum + (record.result === "win" ? 1 : 0), 0);
 
+  let stats = {};
+  let driverTracks = 0;
+  let itemTracks = 0;
+  let driverTrackWins = 0;
+  let itemTrackWins = 0;
+  // TODO: change to `let stats = Object.values(tracks).flat().map(...)
+  props.records.length && Object.values(tracks).flat().forEach(track => {
+    let driverWins = 0;
+    let itemWins = 0;
+    let driverGames = 0;
+    let itemGames = 0;
+    let fastestDriver = {};
+    for (let i = 0; i < props.records.length / 2; i++) {
+      if (props.records[2 * i][track] === "desync") continue;
+      if (props.records[2 * i].driver === player) {
+        driverGames++;
+        if (fastestDriver[track] === undefined || props.records[2 * i][track] < fastestDriver[track]) fastestDriver = props.records[2 * i];
+        if (props.records[2 * i][track] < props.records[2 * i + 1][track]) driverWins++;
+      } else if (props.records[2 * i].items === player) {
+        itemGames++;
+        if (props.records[2 * i][track] < props.records[2 * i + 1][track]) itemWins++;
+      } else if (props.records[2 * i + 1].driver === player) {
+        driverGames++;
+        if (fastestDriver[track] === undefined || props.records[2 * i + 1][track] < fastestDriver[track]) fastestDriver = props.records[2 * i + 1];
+        if (props.records[2 * i][track] > props.records[2 * i + 1][track]) driverWins++;
+      } else if (props.records[2 * i + 1].items === player) {
+        itemGames++;
+        if (props.records[2 * i][track] > props.records[2 * i + 1][track]) itemWins++;
+      }
+    }
+    let record = props.records.map(r => r[track]).reduce((prev, cur) => cur < prev ? cur : prev);
+    let difference = subtractDuration(fastestDriver[track], record);
+    difference = difference === 0 ? "-" : "+" + difference.toFixed(3);
+
+    stats[track] = {
+      driverWins, itemWins, driverGames, itemGames, fastestDriver, difference
+    };
+    driverTracks += driverGames;
+    itemTracks += itemGames;
+    driverTrackWins += driverWins;
+    itemTrackWins += itemWins;
+  });
+
   return (
     <Container>
       <h3>{player}</h3>
@@ -55,43 +98,25 @@ function Player(props) {
               </thead>
               <tbody>
                 {props.records.length ? Object.values(tracks).flat().map(track => {
-                  let driverWins = 0;
-                  let itemWins = 0;
-                  let driverGames = 0;
-                  let itemGames = 0;
-                  let fastestDriver = {};
-                  for (let i = 0; i < props.records.length / 2; i++) {
-                    if (props.records[2 * i][track] === "desync") continue;
-                    if (props.records[2 * i].driver === player) {
-                      driverGames++;
-                      if (fastestDriver[track] === undefined || props.records[2 * i][track] < fastestDriver[track]) fastestDriver = props.records[2 * i];
-                      if (props.records[2 * i][track] < props.records[2 * i + 1][track]) driverWins++;
-                    } else if (props.records[2 * i].items === player) {
-                      itemGames++;
-                      if (props.records[2 * i][track] < props.records[2 * i + 1][track]) itemWins++;
-                    } else if (props.records[2 * i + 1].driver === player) {
-                      driverGames++;
-                      if (fastestDriver[track] === undefined || props.records[2 * i + 1][track] < fastestDriver[track]) fastestDriver = props.records[2 * i + 1];
-                      if (props.records[2 * i][track] > props.records[2 * i + 1][track]) driverWins++;
-                    } else if (props.records[2 * i + 1].items === player) {
-                      itemGames++;
-                      if (props.records[2 * i][track] > props.records[2 * i + 1][track]) itemWins++;
-                    }
-                  }
-                  let record = props.records.map(r => r[track]).reduce((prev, cur) => cur < prev ? cur : prev);
-                  let difference = subtractDuration(fastestDriver[track], record);
-                  difference = difference === 0 ? "-" : "+" + difference.toFixed(3);
                   return (
                     <tr key={track}>
                       <td>{track}</td>
-                      <td className={difference === "-" ? "fw-bold" : null}>{fastestDriver[track]}</td>
-                      <td>{difference}</td>
-                      <td>{driverWins}/{driverGames}</td>
-                      <td>{itemWins}/{itemGames}</td>
-                      <td>{((driverWins + itemWins) / (driverGames + itemGames) * 100).toFixed(0)}%</td>
+                      <td className={stats[track].difference === "-" ? "fw-bold" : null}>{stats[track].fastestDriver[track]}</td>
+                      <td>{stats[track].difference}</td>
+                      <td>{stats[track].driverWins}/{stats[track].driverGames}</td>
+                      <td>{stats[track].itemWins}/{stats[track].itemGames}</td>
+                      <td>{((stats[track].driverWins + stats[track].itemWins) / (stats[track].driverGames + stats[track].itemGames) * 100).toFixed(0)}%</td>
                     </tr>
                   );
                 }) : null}
+                <tr>
+                  <td className="fw-bold">totals</td>
+                  <td/>
+                  <td/>
+                  <td className="fw-bold">{(driverTrackWins / driverTracks * 100).toFixed(0)}%</td>
+                  <td className="fw-bold">{(itemTrackWins / itemTracks * 100).toFixed(0)}%</td>
+                  <td className="fw-bold">{((driverTrackWins + itemTrackWins) / (driverTracks + itemTracks) * 100).toFixed(0)}%</td>
+                </tr>
               </tbody>
             </table>
           </Card>
