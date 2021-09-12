@@ -10,3 +10,5 @@ export function toMs(duration) {
   let arr = duration.split(/[:.]/).map(num => parseInt(num));
   return arr[0] * 60 * 1000 + arr[1] * 1000 + arr[2];
 }
+
+export const players = ["Ben", "Chris", "Derek", "Ryan"];

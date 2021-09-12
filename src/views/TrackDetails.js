@@ -1,18 +1,16 @@
 import React, { useMemo } from "react";
-import { Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Container, Table, Row, Col } from "react-bootstrap";
+import { useParams, withRouter } from "react-router-dom";
 import ReactTable from "react-table-v6";
 import "react-table-v6/react-table.css";
+import { players } from "../utils/utils";
+import Winrate from "../components/Winrate";
 
 function TrackDetails(props) {
 
   const { track } = useParams();
 
   const columns = React.useMemo(() => [
-      {
-        Header: "#",
-        accessor: "runback"
-      },
       {
         Header: "Driver",
         accessor: "driver"
@@ -28,21 +26,19 @@ function TrackDetails(props) {
       {
         Header: "Time",
         accessor: "time"
+      },
+      {
+        Header: "Episode",
+        accessor: "runback",
+        sortType: (a, b) => a.number - b.number,
+        Cell: row => <a href={row.original.runback.link}>ep. {row.original.runback.number}</a>
       }
     ], []
   );
 
-  const sort = (a, b) => {
-    if (typeof a === "number") {
-      return b - a;
-    } else {
-      return a.localeCompare(b);
-    }
-  };
-
   const data = useMemo(() => props.records.map(record => {
       return {
-        runback: record.runback,
+        runback: { number: record.runback, link: record.link },
         driver: record.driver,
         items: record.items,
         kart: record.kart,
@@ -54,17 +50,43 @@ function TrackDetails(props) {
   return (
     <Container>
       <h3>{track}</h3>
-      <ReactTable
-        data={data}
-        pageSize={data.length}
-        columns={columns}
-        defaultSortMethod={sort}
-        showPagination={false}
-        className="-striped -highlight"
-        defaultSorted={[{id: "time"}]}
-      />
+      <Row>
+        <Col>
+          <h4>Stats</h4>
+          <Table bordered size="sm">
+            <tr>
+              <th/>
+              <th>Driver Record</th>
+              <th>Items Record</th>
+              <th>Total Record</th>
+            </tr>
+            {props.records.length && players.map(player => {
+              let t = props.stats[player][track];
+              return (
+                <tr>
+                  <td className="clickable" onClick={() => props.history.push("/players/" + player)}>{player}</td>
+                  <td><Winrate numerator={t.driverWins} denominator={t.driverGames} /></td>
+                  <td><Winrate numerator={t.itemWins} denominator={t.itemGames} /></td>
+                  <td><Winrate numerator={t.driverWins + t.itemWins} denominator={t.driverGames + t.itemGames} /></td>
+                </tr>
+              );
+            })}
+          </Table>
+        </Col>
+        <Col>
+          <h4>Standings</h4>
+          <ReactTable
+            data={data}
+            pageSize={data.length}
+            columns={columns}
+            showPagination={false}
+            className="-striped -highlight"
+            defaultSorted={[{id: "time"}]}
+          />
+        </Col>
+      </Row>
     </Container>
   )
 }
 
-export default TrackDetails;
+export default withRouter(TrackDetails);
