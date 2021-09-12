@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/Mario-Kart-Runbacks/static/css/main.18173aca.chunk.css",
-    "main.js": "/Mario-Kart-Runbacks/static/js/main.23d1a035.chunk.js",
-    "main.js.map": "/Mario-Kart-Runbacks/static/js/main.23d1a035.chunk.js.map",
+    "main.js": "/Mario-Kart-Runbacks/static/js/main.997d4665.chunk.js",
+    "main.js.map": "/Mario-Kart-Runbacks/static/js/main.997d4665.chunk.js.map",
     "runtime-main.js": "/Mario-Kart-Runbacks/static/js/runtime-main.c3245fea.js",
     "runtime-main.js.map": "/Mario-Kart-Runbacks/static/js/runtime-main.c3245fea.js.map",
     "static/css/2.c57215b7.chunk.css": "/Mario-Kart-Runbacks/static/css/2.c57215b7.chunk.css",
-    "static/js/2.645e512e.chunk.js": "/Mario-Kart-Runbacks/static/js/2.645e512e.chunk.js",
-    "static/js/2.645e512e.chunk.js.map": "/Mario-Kart-Runbacks/static/js/2.645e512e.chunk.js.map",
+    "static/js/2.fe417564.chunk.js": "/Mario-Kart-Runbacks/static/js/2.fe417564.chunk.js",
+    "static/js/2.fe417564.chunk.js.map": "/Mario-Kart-Runbacks/static/js/2.fe417564.chunk.js.map",
     "static/js/3.4ea753a4.chunk.js": "/Mario-Kart-Runbacks/static/js/3.4ea753a4.chunk.js",
     "static/js/3.4ea753a4.chunk.js.map": "/Mario-Kart-Runbacks/static/js/3.4ea753a4.chunk.js.map",
     "index.html": "/Mario-Kart-Runbacks/index.html",
     "static/css/2.c57215b7.chunk.css.map": "/Mario-Kart-Runbacks/static/css/2.c57215b7.chunk.css.map",
     "static/css/main.18173aca.chunk.css.map": "/Mario-Kart-Runbacks/static/css/main.18173aca.chunk.css.map",
-    "static/js/2.645e512e.chunk.js.LICENSE.txt": "/Mario-Kart-Runbacks/static/js/2.645e512e.chunk.js.LICENSE.txt",
+    "static/js/2.fe417564.chunk.js.LICENSE.txt": "/Mario-Kart-Runbacks/static/js/2.fe417564.chunk.js.LICENSE.txt",
     "static/media/runbacks.ae7c6976.csv": "/Mario-Kart-Runbacks/static/media/runbacks.ae7c6976.csv"
   },
   "entrypoints": [
     "static/js/runtime-main.c3245fea.js",
     "static/css/2.c57215b7.chunk.css",
-    "static/js/2.645e512e.chunk.js",
+    "static/js/2.fe417564.chunk.js",
     "static/css/main.18173aca.chunk.css",
-    "static/js/main.23d1a035.chunk.js"
+    "static/js/main.997d4665.chunk.js"
   ]
 }
