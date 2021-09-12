@@ -15,7 +15,7 @@ function Records(props) {
             <Row>
               {tracks[cup].map(track => {
                 return (
-                  <Col key={track}>
+                  <Col md={6} key={track}>
                     <TrackBlock track={track} data={props.records} />
                   </Col>
                 );

@@ -6,3 +6,17 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+.winrate {
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+.light {
+  font-size: 10pt;
+  color: grey;
+}
+
+.kart-icon {
+  height: 24px;
+}

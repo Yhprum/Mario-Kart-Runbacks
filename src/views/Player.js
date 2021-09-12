@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, withRouter } from "react-router-dom";
 import { Row, Col, Card } from "react-bootstrap";
 import tracks from "../data/maps.json";
 import { subtractDuration } from "../utils/utils";
@@ -9,7 +9,7 @@ import Winrate from "../components/Winrate";
 function Player(props) {
 
   const { player } = useParams();
-  const [season, setSeason] = useState(0);
+  const [season, setSeason] = useState("0");
 
   let records = parseInt(season) === 0 ? props.records : props.records.filter(record => record.season === season);
 
@@ -75,8 +75,8 @@ function Player(props) {
             <table>
               <thead>
               <tr>
-                <th>Driver Winrate</th>
-                <th>Items Winrate</th>
+                <th>Driver</th>
+                <th>Items</th>
                 <th>Overall</th>
               </tr>
               </thead>
@@ -108,7 +108,7 @@ function Player(props) {
                 {records.length ? Object.values(tracks).flat().map(track => {
                   return (
                     <tr key={track}>
-                      <td>{track}</td>
+                      <td className="clickable" onClick={() => props.history.push("/tracks/" + track)}>{track}</td>
                       <td className={stats[track].difference === "-" ? "fw-bold" : null}>{stats[track].fastestDriver[track]}</td>
                       <td>{stats[track].difference}</td>
                       <td>{stats[track].driverWins}/{stats[track].driverGames}</td>
@@ -134,4 +134,4 @@ function Player(props) {
   )
 }
 
-export default Player;
+export default withRouter(Player);
