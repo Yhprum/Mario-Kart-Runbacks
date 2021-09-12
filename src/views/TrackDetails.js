@@ -54,23 +54,27 @@ function TrackDetails(props) {
         <Col>
           <h4>Stats</h4>
           <Table bordered size="sm">
-            <tr>
-              <th/>
-              <th>Driver Record</th>
-              <th>Items Record</th>
-              <th>Total Record</th>
-            </tr>
-            {props.records.length && players.map(player => {
-              let t = props.stats[player][track];
-              return (
-                <tr>
-                  <td className="clickable" onClick={() => props.history.push("/players/" + player)}>{player}</td>
-                  <td><Winrate numerator={t.driverWins} denominator={t.driverGames} /></td>
-                  <td><Winrate numerator={t.itemWins} denominator={t.itemGames} /></td>
-                  <td><Winrate numerator={t.driverWins + t.itemWins} denominator={t.driverGames + t.itemGames} /></td>
-                </tr>
-              );
-            })}
+            <thead>
+              <tr>
+                <th/>
+                <th>Driver Record</th>
+                <th>Items Record</th>
+                <th>Total Record</th>
+              </tr>
+            </thead>
+            <tbody>
+              {props.records.length ? players.map(player => {
+                let t = props.stats[player][track];
+                return (
+                  <tr key={player}>
+                    <td className="clickable" onClick={() => props.history.push("/players/" + player)}>{player}</td>
+                    <td><Winrate numerator={t.driverWins} denominator={t.driverGames} /></td>
+                    <td><Winrate numerator={t.itemWins} denominator={t.itemGames} /></td>
+                    <td><Winrate numerator={t.driverWins + t.itemWins} denominator={t.driverGames + t.itemGames} /></td>
+                  </tr>
+                );
+              }) : null}
+            </tbody>
           </Table>
         </Col>
         <Col>
