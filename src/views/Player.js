@@ -84,7 +84,7 @@ function Player(props) {
                   return (
                     <tr key={track}>
                       <td>{track}</td>
-                      <td>{fastestDriver[track]}</td>
+                      <td className={difference === "-" ? "fw-bold" : null}>{fastestDriver[track]}</td>
                       <td>{difference}</td>
                       <td>{driverWins}/{driverGames}</td>
                       <td>{itemWins}/{itemGames}</td>
