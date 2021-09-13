@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { useParams, withRouter } from "react-router-dom";
 import { Row, Col, Card } from "react-bootstrap";
 import tracks from "../data/maps.json";
-import { subtractDuration } from "../utils/utils";
+import { subtractDuration, total } from "../utils/utils";
 import Winrate from "../components/Winrate";
 
 function Player(props) {
@@ -119,7 +119,7 @@ function Player(props) {
                 }) : null}
                 <tr>
                   <td className="fw-bold">totals</td>
-                  <td/>
+                  <td className="fw-bold">{total(Object.keys(stats).map(track => stats[track].fastestDriver[track]))}</td>
                   <td/>
                   <td className="fw-bold">{(driverTrackWins / driverTracks * 100).toFixed(0)}%</td>
                   <td className="fw-bold">{(itemTrackWins / itemTracks * 100).toFixed(0)}%</td>
