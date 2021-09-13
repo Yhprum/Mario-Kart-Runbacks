@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Mario-Kart-Runbacks/static/css/main.18173aca.chunk.css",
-    "main.js": "/Mario-Kart-Runbacks/static/js/main.d965d867.chunk.js",
-    "main.js.map": "/Mario-Kart-Runbacks/static/js/main.d965d867.chunk.js.map",
+    "main.js": "/Mario-Kart-Runbacks/static/js/main.d255e8fb.chunk.js",
+    "main.js.map": "/Mario-Kart-Runbacks/static/js/main.d255e8fb.chunk.js.map",
     "runtime-main.js": "/Mario-Kart-Runbacks/static/js/runtime-main.35e383f0.js",
     "runtime-main.js.map": "/Mario-Kart-Runbacks/static/js/runtime-main.35e383f0.js.map",
     "static/css/2.c57215b7.chunk.css": "/Mario-Kart-Runbacks/static/css/2.c57215b7.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.c57215b7.chunk.css",
     "static/js/2.b3ce1bc5.chunk.js",
     "static/css/main.18173aca.chunk.css",
-    "static/js/main.d965d867.chunk.js"
+    "static/js/main.d255e8fb.chunk.js"
   ]
 }
