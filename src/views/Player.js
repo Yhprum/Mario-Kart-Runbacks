@@ -50,7 +50,7 @@ function Player(props) {
     }
     let record = props.records.map(r => r[track]).reduce((prev, cur) => cur < prev ? cur : prev);
     let difference = subtractDuration(fastestDriver[track], record);
-    difference = difference === 0 ? "-" : "+" + difference.toFixed(3);
+    // difference = difference === 0 ? "-" : "+" + difference.toFixed(3);
 
     stats[track] = {
       driverWins, itemWins, driverGames, itemGames, fastestDriver, difference
@@ -109,8 +109,8 @@ function Player(props) {
                   return (
                     <tr key={track}>
                       <td className="clickable" onClick={() => props.history.push("/tracks/" + track)}>{track}</td>
-                      <td className={stats[track].difference === "-" ? "fw-bold" : null}>{stats[track].fastestDriver[track]}</td>
-                      <td>{stats[track].difference}</td>
+                      <td className={stats[track].difference === 0 ? "fw-bold" : null}>{stats[track].fastestDriver[track]}</td>
+                      <td>{stats[track].difference === 0 ? "-" : "+" + stats[track].difference.toFixed(3)}</td>
                       <td>{stats[track].driverWins}/{stats[track].driverGames}</td>
                       <td>{stats[track].itemWins}/{stats[track].itemGames}</td>
                       <td>{((stats[track].driverWins + stats[track].itemWins) / (stats[track].driverGames + stats[track].itemGames) * 100).toFixed(0)}%</td>
@@ -120,7 +120,7 @@ function Player(props) {
                 <tr>
                   <td className="fw-bold">totals</td>
                   <td className="fw-bold">{total(Object.keys(stats).map(track => stats[track].fastestDriver[track]))}</td>
-                  <td/>
+                  <td className="fw-bold">+{Object.keys(stats).map(track => stats[track].difference).reduce((a,b)=>a+b,0).toFixed(3)}</td>
                   <td className="fw-bold">{(driverTrackWins / driverTracks * 100).toFixed(0)}%</td>
                   <td className="fw-bold">{(itemTrackWins / itemTracks * 100).toFixed(0)}%</td>
                   <td className="fw-bold">{((driverTrackWins + itemTrackWins) / (driverTracks + itemTracks) * 100).toFixed(0)}%</td>
