@@ -1,8 +1,10 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { withRouter } from "react-router-dom";
+import tracks from "../data/maps.json";
 
-function Header() {
+function Header(props) {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -25,6 +27,11 @@ function Header() {
             <LinkContainer to="/players/Ryan">
               <Nav.Link>Ryan</Nav.Link>
             </LinkContainer>
+            <NavDropdown title="Tracks" id="basic-nav-dropdown">
+              {Object.values(tracks).flat().map(track =>
+                <NavDropdown.Item onClick={() => props.history.push("/tracks/" + track)}>{track}</NavDropdown.Item>
+              )}
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -32,4 +39,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withRouter(Header);

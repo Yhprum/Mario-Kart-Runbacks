@@ -1,17 +1,16 @@
 import React from "react";
 import tracks from "../data/maps.json";
-import {Row, Col, Tabs, Tab, Table} from "react-bootstrap";
+import { Row, Col, Tabs, Tab, Table } from "react-bootstrap";
 import TrackBlock from "./TrackBlock";
 import Mushroom from "../img/cups/mushroom.png";
 import Flower from "../img/cups/flower.png";
 import Star from "../img/cups/star.png";
 import Special from "../img/cups/special.png";
-import {players, total, trackSort} from "../utils/utils";
+import { players, trackSort } from "../utils/utils";
 import Winrate from "../components/Winrate";
 import Kart from "../components/Kart";
 
 function Records(props) {
-
   let cups = {Mushroom, Flower, Star, Special};
 
   return (

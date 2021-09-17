@@ -7,7 +7,6 @@ import { players } from "../utils/utils";
 import Winrate from "../components/Winrate";
 
 function TrackDetails(props) {
-
   const { track } = useParams();
 
   const columns = React.useMemo(() => [
