@@ -13,7 +13,10 @@ function Header(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <LinkContainer to="/">
-              <Nav.Link>Home</Nav.Link>
+              <Nav.Link>Stats</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/tracks">
+              <Nav.Link>Tracks</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/players/Ben">
               <Nav.Link>Ben</Nav.Link>
@@ -27,7 +30,7 @@ function Header(props) {
             <LinkContainer to="/players/Ryan">
               <Nav.Link>Ryan</Nav.Link>
             </LinkContainer>
-            <NavDropdown title="Tracks" id="basic-nav-dropdown">
+            <NavDropdown title="Track List" id="basic-nav-dropdown">
               {Object.values(tracks).flat().map(track =>
                 <NavDropdown.Item onClick={() => props.history.push("/tracks/" + track)}>{track}</NavDropdown.Item>
               )}
