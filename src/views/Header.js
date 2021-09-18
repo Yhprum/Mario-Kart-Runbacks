@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container, FormControl } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { withRouter } from "react-router-dom";
 import tracks from "../data/maps.json";
@@ -32,6 +32,15 @@ function Header(props) {
                 <NavDropdown.Item onClick={() => props.history.push("/tracks/" + track)}>{track}</NavDropdown.Item>
               )}
             </NavDropdown>
+          </Nav>
+          <Nav>
+            <Navbar.Text>
+              Filter:
+            </Navbar.Text>
+            <FormControl as="select"  value={props.season} onChange={e => props.setSeason(e.target.value)}>
+              <option value={0}>All Seasons</option>
+              {[1, 2, 3].map(season => <option key={season} value={season}>Season {season}</option>)}
+            </FormControl>
           </Nav>
         </Navbar.Collapse>
       </Container>

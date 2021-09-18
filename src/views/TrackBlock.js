@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import { Card, Row, Col } from "react-bootstrap";
 import { trackSort } from "../utils/utils";
 import train from "../img/karts/train.png";

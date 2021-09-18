@@ -12,7 +12,7 @@ function Routes(props) {
         <TrackDetails records={props.records} stats={props.stats} />
       </Route>
       <Route path="/players/:player">
-        <Player records={props.records} />
+        <Player records={props.records} runbacks={props.runbacks} stats={props.stats} />
       </Route>
       <Route path="/">
         <Records records={props.records} />
