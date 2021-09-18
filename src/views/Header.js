@@ -32,7 +32,7 @@ function Header(props) {
             </LinkContainer>
             <NavDropdown title="Track List" id="basic-nav-dropdown">
               {Object.values(tracks).flat().map(track =>
-                <NavDropdown.Item onClick={() => props.history.push("/tracks/" + track)}>{track}</NavDropdown.Item>
+                <NavDropdown.Item key={track} onClick={() => props.history.push("/tracks/" + track)}>{track}</NavDropdown.Item>
               )}
             </NavDropdown>
           </Nav>
