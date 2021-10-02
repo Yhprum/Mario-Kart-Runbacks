@@ -20,3 +20,7 @@
 .kart-icon {
   height: 24px;
 }
+
+.rt-th {
+  text-transform: capitalize;
+}
