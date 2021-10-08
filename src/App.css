@@ -24,3 +24,14 @@
 .rt-th {
   text-transform: capitalize;
 }
+
+.ReactTable .rt-table {
+  overflow: unset!important;
+}
+
+.ReactTable .rt-thead.-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+}

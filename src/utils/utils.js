@@ -22,4 +22,6 @@ export function toMs(duration) {
   return arr[0] * 60 * 1000 + arr[1] * 1000 + arr[2];
 }
 
+export const toPercent = num => (num * 100).toFixed(0) + "%";
+
 export const players = ["Ben", "Chris", "Derek", "Ryan"];

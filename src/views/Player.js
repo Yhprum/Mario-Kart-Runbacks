@@ -1,9 +1,8 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { useParams, withRouter } from "react-router-dom";
-import { Row, Col, Card } from "react-bootstrap";
 import tracks from "../data/maps.json";
-import { total } from "../utils/utils";
+import { toPercent, total } from "../utils/utils";
 import Winrate from "../components/Winrate";
 
 function Player(props) {
@@ -65,8 +64,8 @@ function Player(props) {
                       <td className="clickable" onClick={() => props.history.push("/tracks/" + track)}>{track}</td>
                       <td className={stats[track].difference === 0 ? "fw-bold" : null}>{stats[track].fastestDriver[track]}</td>
                       <td>{stats[track].difference === 0 ? "-" : "+" + stats[track].difference.toFixed(3)}</td>
-                      <td>{stats[track].driverWins}/{stats[track].driverGames}</td>
-                      <td>{stats[track].itemWins}/{stats[track].itemGames}</td>
+                      <td>{toPercent(stats[track].driverWins / stats[track].driverGames)}</td>
+                      <td>{toPercent(stats[track].itemWins / stats[track].itemGames)}</td>
                       <td>{((stats[track].driverWins + stats[track].itemWins) / (stats[track].driverGames + stats[track].itemGames) * 100).toFixed(0)}%</td>
                     </tr>
                   );
@@ -75,9 +74,9 @@ function Player(props) {
                   <td className="fw-bold">totals</td>
                   <td className="fw-bold">{total(Object.keys(stats).filter(s=>Object.values(tracks).flat().includes(s)).map(track => stats[track].fastestDriver[track]))}</td>
                   <td className="fw-bold">+{Object.keys(stats).filter(s=>Object.values(tracks).flat().includes(s)).map(track => stats[track].difference).reduce((a,b)=>a+b,0).toFixed(3)}</td>
-                  <td className="fw-bold">{(stats.driverTrackWins / stats.driverTracks * 100).toFixed(0)}%</td>
-                  <td className="fw-bold">{(stats.itemTrackWins / stats.itemTracks * 100).toFixed(0)}%</td>
-                  <td className="fw-bold">{((stats.driverTrackWins + stats.itemTrackWins) / (stats.driverTracks + stats.itemTracks) * 100).toFixed(0)}%</td>
+                  <td className="fw-bold">{toPercent(stats.driverTrackWins / stats.driverTracks)}</td>
+                  <td className="fw-bold">{toPercent(stats.itemTrackWins / stats.itemTracks)}</td>
+                  <td className="fw-bold">{toPercent((stats.driverTrackWins + stats.itemTrackWins) / (stats.driverTracks + stats.itemTracks))}</td>
                 </tr>
               </tbody>
             </table>

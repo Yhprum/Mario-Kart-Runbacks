@@ -20,13 +20,12 @@ function Runbacks({ records }) {
     };
     [cols[0], cols[1]] = [cols[1], cols[0]];
     return cols;
-  }, [records])
+  }, [records]);
 
   const data = useMemo(() => records, [records]);
 
   return (
     <div>
-      <h4>Runbacks</h4>
       <ReactTable
         data={data}
         pageSize={data.length}

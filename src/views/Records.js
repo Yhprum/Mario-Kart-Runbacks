@@ -1,6 +1,7 @@
 import React from "react";
 import tracks from "../data/maps.json";
 import { Row, Col, Tabs, Tab, Table } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 import TrackBlock from "./TrackBlock";
 import Mushroom from "../img/cups/mushroom.png";
 import Flower from "../img/cups/flower.png";
@@ -97,4 +98,4 @@ function Records(props) {
   )
 }
 
-export default Records;
+export default withRouter(Records);
