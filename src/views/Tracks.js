@@ -1,7 +1,7 @@
 import React from "react";
 import tracks from "../data/maps.json";
 import { Row, Col, Table } from "react-bootstrap";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { players } from "../utils/utils";
 import Winrate from "../components/Winrate";
 import Kart from "../components/Kart";
@@ -59,7 +59,7 @@ function Tracks(props) {
                   <td>{record.items}</td>
                   <td><Kart kart={record.kart} /></td>
                   <td>{record[track]}</td>
-                  <td><a href={record.link}>ep. {record.runback}</a></td>
+                  <td><Link to={`/runbacks/${record.runback}`}>ep. {record.runback}</Link></td>
                 </tr>
               );
             }) : null}

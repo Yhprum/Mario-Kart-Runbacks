@@ -21,7 +21,7 @@
   height: 24px;
 }
 
-.rt-th {
+th, .rt-th {
   text-transform: capitalize;
 }
 
@@ -34,4 +34,8 @@
   position: sticky;
   top: 0;
   background-color: #ffffff;
+}
+
+td.track-win {
+  background: rgba(0,0,0,.1);
 }

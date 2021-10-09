@@ -5,18 +5,14 @@ import tracks from "../data/maps.json";
 import { toPercent, total } from "../utils/utils";
 import Winrate from "../components/Winrate";
 
-function Player(props) {
-
+function Player({ records, stats, history }) {
   const { player } = useParams();
 
-  let records = props.records;
-
+  stats = stats[player];
   let driverGames = records.filter(record => record.driver === player && record.result !== "desync");
   let driver = driverGames.reduce((sum, record) => sum + (record.result === "win" ? 1 : 0), 0);
   let itemsGames = records.filter(record => record.items === player && record.result !== "desync");
   let items = itemsGames.reduce((sum, record) => sum + (record.result === "win" ? 1 : 0), 0);
-
-  let stats = props.stats[player];
 
   return (
     <Container>
@@ -61,7 +57,7 @@ function Player(props) {
                 {records.length ? Object.values(tracks).flat().map(track => {
                   return (
                     <tr key={track}>
-                      <td className="clickable" onClick={() => props.history.push("/tracks/" + track)}>{track}</td>
+                      <td className="clickable" onClick={() => history.push("/tracks/" + track)}>{track}</td>
                       <td className={stats[track].difference === 0 ? "fw-bold" : null}>{stats[track].fastestDriver[track]}</td>
                       <td>{stats[track].difference === 0 ? "-" : "+" + stats[track].difference.toFixed(3)}</td>
                       <td>{toPercent(stats[track].driverWins / stats[track].driverGames)}</td>

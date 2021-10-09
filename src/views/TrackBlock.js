@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Card, Row, Col } from "react-bootstrap";
 import { trackSort } from "../utils/utils";
 import train from "../img/karts/train.png";
@@ -22,7 +22,7 @@ function TrackBlock(props) {
             <Col>{time.driver} + {time.items}</Col>
             <Col><img src={images[time.kart]} alt={time.kart} className="kart-icon"/></Col>
             <Col>{time[props.track]}</Col>
-            <Col><a href={time.link}>ep. {time.runback}</a></Col>
+            <Col><Link to={`/runbacks/${time.runback}`}>ep. {time.runback}</Link></Col>
             <br/>
           </Row>
         )

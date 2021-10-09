@@ -2,16 +2,17 @@ import React, { useMemo } from "react";
 import ReactTable from "react-table-v6";
 import "react-table-v6/react-table.css";
 import Kart from "../components/Kart";
+import { Link } from "react-router-dom";
 
 function Runbacks({ records }) {
-  const columns = React.useMemo(() => {
+  const columns = useMemo(() => {
     if (!records.length) return [];
     let cols = Object.keys(records[0]).filter(c=>c!=="link").map(column => ({ Header: column, accessor: column }));
     cols[cols.findIndex(c=>c.accessor==="runback")] = {
       Header: "Episode",
       accessor: "runback",
       sortType: (a, b) => a.number - b.number,
-      Cell: row => <a href={row.original.link}>ep. {row.original.runback}</a>
+      Cell: row => <Link to={`/runbacks/${row.original.runback}`}>ep. {row.original.runback}</Link>
     };
     cols[cols.findIndex(c=>c.accessor==="kart")] = {
       Header: "kart",

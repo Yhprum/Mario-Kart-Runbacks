@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Container, Table, Row, Col } from "react-bootstrap";
-import { useParams, withRouter } from "react-router-dom";
+import { Link, useParams, withRouter } from "react-router-dom";
 import ReactTable from "react-table-v6";
 import "react-table-v6/react-table.css";
 import { players } from "../utils/utils";
@@ -30,14 +30,14 @@ function TrackDetails(props) {
         Header: "Episode",
         accessor: "runback",
         sortType: (a, b) => a.number - b.number,
-        Cell: row => <a href={row.original.runback.link}>ep. {row.original.runback.number}</a>
+        Cell: row => <Link to={`/runbacks/${row.original.runback}`}>ep. {row.original.runback}</Link>
       }
     ], []
   );
 
   const data = useMemo(() => props.records.map(record => {
       return {
-        runback: { number: record.runback, link: record.link },
+        runback: record.runback,
         driver: record.driver,
         items: record.items,
         kart: record.kart,

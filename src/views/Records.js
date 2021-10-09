@@ -1,7 +1,7 @@
 import React from "react";
 import tracks from "../data/maps.json";
 import { Row, Col, Tabs, Tab, Table } from "react-bootstrap";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import TrackBlock from "./TrackBlock";
 import Mushroom from "../img/cups/mushroom.png";
 import Flower from "../img/cups/flower.png";
@@ -12,7 +12,7 @@ import Winrate from "../components/Winrate";
 import Kart from "../components/Kart";
 
 function Records(props) {
-  let cups = {Mushroom, Flower, Star, Special};
+  let cups = { Mushroom, Flower, Star, Special };
 
   return (
     <div className="container">
@@ -68,7 +68,7 @@ function Records(props) {
                   <td>{record.items}</td>
                   <td><Kart kart={record.kart} /></td>
                   <td>{record.time}</td>
-                  <td><a href={record.link}>ep. {record.runback}</a></td>
+                  <td><Link to={`/runbacks/${record.runback}`}>ep. {record.runback}</Link></td>
                 </tr>
               );
             }) : null}
