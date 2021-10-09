@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Mario-Kart-Runbacks/static/css/main.1460c512.chunk.css",
-    "main.js": "/Mario-Kart-Runbacks/static/js/main.5c930c08.chunk.js",
-    "main.js.map": "/Mario-Kart-Runbacks/static/js/main.5c930c08.chunk.js.map",
-    "runtime-main.js": "/Mario-Kart-Runbacks/static/js/runtime-main.83b965ae.js",
-    "runtime-main.js.map": "/Mario-Kart-Runbacks/static/js/runtime-main.83b965ae.js.map",
+    "main.css": "/Mario-Kart-Runbacks/static/css/main.36ed2c9d.chunk.css",
+    "main.js": "/Mario-Kart-Runbacks/static/js/main.a2e7152d.chunk.js",
+    "main.js.map": "/Mario-Kart-Runbacks/static/js/main.a2e7152d.chunk.js.map",
+    "runtime-main.js": "/Mario-Kart-Runbacks/static/js/runtime-main.421b1943.js",
+    "runtime-main.js.map": "/Mario-Kart-Runbacks/static/js/runtime-main.421b1943.js.map",
     "static/css/2.c57215b7.chunk.css": "/Mario-Kart-Runbacks/static/css/2.c57215b7.chunk.css",
-    "static/js/2.8cff4034.chunk.js": "/Mario-Kart-Runbacks/static/js/2.8cff4034.chunk.js",
-    "static/js/2.8cff4034.chunk.js.map": "/Mario-Kart-Runbacks/static/js/2.8cff4034.chunk.js.map",
-    "static/js/3.c87c13d3.chunk.js": "/Mario-Kart-Runbacks/static/js/3.c87c13d3.chunk.js",
-    "static/js/3.c87c13d3.chunk.js.map": "/Mario-Kart-Runbacks/static/js/3.c87c13d3.chunk.js.map",
+    "static/js/2.fe80b51e.chunk.js": "/Mario-Kart-Runbacks/static/js/2.fe80b51e.chunk.js",
+    "static/js/2.fe80b51e.chunk.js.map": "/Mario-Kart-Runbacks/static/js/2.fe80b51e.chunk.js.map",
+    "static/js/3.a92ee35b.chunk.js": "/Mario-Kart-Runbacks/static/js/3.a92ee35b.chunk.js",
+    "static/js/3.a92ee35b.chunk.js.map": "/Mario-Kart-Runbacks/static/js/3.a92ee35b.chunk.js.map",
     "index.html": "/Mario-Kart-Runbacks/index.html",
     "static/css/2.c57215b7.chunk.css.map": "/Mario-Kart-Runbacks/static/css/2.c57215b7.chunk.css.map",
-    "static/css/main.1460c512.chunk.css.map": "/Mario-Kart-Runbacks/static/css/main.1460c512.chunk.css.map",
-    "static/js/2.8cff4034.chunk.js.LICENSE.txt": "/Mario-Kart-Runbacks/static/js/2.8cff4034.chunk.js.LICENSE.txt",
+    "static/css/main.36ed2c9d.chunk.css.map": "/Mario-Kart-Runbacks/static/css/main.36ed2c9d.chunk.css.map",
+    "static/js/2.fe80b51e.chunk.js.LICENSE.txt": "/Mario-Kart-Runbacks/static/js/2.fe80b51e.chunk.js.LICENSE.txt",
     "static/media/flower.9f2cff74.png": "/Mario-Kart-Runbacks/static/media/flower.9f2cff74.png",
     "static/media/mushroom.93502664.png": "/Mario-Kart-Runbacks/static/media/mushroom.93502664.png",
     "static/media/runbacks.5a5cf808.csv": "/Mario-Kart-Runbacks/static/media/runbacks.5a5cf808.csv",
@@ -21,10 +21,10 @@
     "static/media/star.86a01916.png": "/Mario-Kart-Runbacks/static/media/star.86a01916.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.83b965ae.js",
+    "static/js/runtime-main.421b1943.js",
     "static/css/2.c57215b7.chunk.css",
-    "static/js/2.8cff4034.chunk.js",
-    "static/css/main.1460c512.chunk.css",
-    "static/js/main.5c930c08.chunk.js"
+    "static/js/2.fe80b51e.chunk.js",
+    "static/css/main.36ed2c9d.chunk.css",
+    "static/js/main.a2e7152d.chunk.js"
   ]
 }
