@@ -5,10 +5,10 @@ import pink from "../img/karts/pink.png";
 import green from "../img/karts/green.png";
 import waluigi from "../img/karts/waluigi.png";
 
-function Kart(props) {
-  let images = {train, blue, pink, green, waluigi};
+function Kart({ kart }) {
+  let images = { train, blue, pink, green, waluigi };
   return (
-    <img src={images[props.kart]} alt={props.kart} className="kart-icon"/>
+    <img src={images[kart]} alt={kart} className="kart-icon"/>
   );
 }
 
