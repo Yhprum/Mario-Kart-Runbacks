@@ -42,20 +42,20 @@ export const bgColors = colors.map(c=>c.replace("rgb", "rgba").replace(")", ",.5
 export const players = ["Ben", "Chris", "Derek", "Ryan"];
 
 export const trackAbbv = {
-  LC: "Luigi Circuit",
-  PB: "Peach Beach",
-  BP: "Baby Park",
-  DDD: "Dry Dry Desert",
-  MB: "Mushroom Bridge",
-  MCR: "Mario Circuit",
-  DC: "Daisy Cruiser",
-  WS: "Waluigi Stadium",
-  SL: "Sherbet Land",
-  MCT: "Mushroom City",
-  YS: "Yoshi Circuit",
-  DKM: "DK Mountain",
-  WC: "Wario Colosseum",
-  DDJ: "Dino Dino Jungle",
-  BC: "Bowser's Castle",
-  RR: "Rainbow Road"
+  "Luigi Circuit": "LC",
+  "Peach Beach": "PB",
+  "Baby Park": "BP",
+  "Dry Dry Desert": "DDD",
+  "Mushroom Bridge": "MB",
+  "Mario Circuit": "MCR",
+  "Daisy Cruiser": "DC",
+  "Waluigi Stadium": "WS",
+  "Sherbet Land": "SL",
+  "Mushroom City": "MCT",
+  "Yoshi Circuit": "YC",
+  "DK Mountain": "DKM",
+  "Wario Colosseum": "WC",
+  "Dino Dino Jungle": "DDJ",
+  "Bowser's Castle": "BC",
+  "Rainbow Road": "RR"
 };

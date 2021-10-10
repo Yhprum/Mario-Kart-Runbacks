@@ -2,15 +2,17 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import maps from "../data/maps.json";
 import Chart from "chart.js/auto";
-import { colors, bgColors, toDuration, toMs, trackSort } from "../utils/utils";
+import { colors, bgColors, toDuration, toMs, trackSort, trackAbbv } from "../utils/utils";
 import { Table } from "react-bootstrap";
 import Kart from "../components/Kart";
+import order from "../data/order";
 
 function RunbackDetails({ records }) {
-  // TODO: Table comparisons to time record/track records, add col to csv saying race order
   const { runback } = useParams();
-  const tracks = Object.values(maps).flat();
+  let tracks = Object.values(maps).flat();
+  tracks = tracks.sort((a, b) => order[runback].indexOf(trackAbbv[a]) - order[runback].indexOf(trackAbbv[b]));
   const info = records.filter(record => record.runback === runback);
+  const runbackDetailsFilter = d => !["runback", "season", "link"].includes(d);
 
   useEffect(() => {
     if (!records.length) return;
@@ -67,8 +69,6 @@ function RunbackDetails({ records }) {
 
     return () => timeline.destroy();
   }, [runback, records, tracks]);
-
-  const runbackDetailsFilter = d => !["runback", "season", "link"].includes(d);
 
   return (
     <div>
