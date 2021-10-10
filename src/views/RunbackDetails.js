@@ -32,7 +32,7 @@ function RunbackDetails({ records }) {
       backgroundColor: bgColors[i],
       borderColor: colors[i]
     }));
-    timeRecord && data.push({
+    data.push({
       label: `${timeRecord.driver} + ${timeRecord.items} (Runback ${timeRecord.runback})`,
       data: Array(16).fill(0),
       borderColor: "rgb(0,0,0)",
