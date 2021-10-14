@@ -1,3 +1,5 @@
+import train from "../img/karts/train.png";
+
 export const trackSort = track => (a, b) => toMs(a[track]) - toMs(b[track]);
 
 export const subtractDuration = (a, b) => {
@@ -30,16 +32,25 @@ export const toDuration = ms => {
 };
 
 export function toMs(duration) {
+  if (duration === undefined) return null;
   let arr = duration.split(/[:.]/).map(num => parseInt(num));
   return arr[0] * 60 * 1000 + arr[1] * 1000 + arr[2];
 }
 
 export const toPercent = num => (num * 100).toFixed(0) + "%";
 
-export const colors = ["rgb(255, 71, 24)", "rgb(0, 83, 234)", "rgb(0, 169, 0)", "rgb(255, 195, 0)"];
+const RED = "rgb(255, 71, 24)";
+const BLUE = "rgb(0, 83, 234)";
+const GREEN = "rgb(0, 169, 0)";
+const YELLOW = "rgb(255, 195, 0)";
+export const colors = [RED, BLUE, GREEN, YELLOW];
 export const bgColors = colors.map(c=>c.replace("rgb", "rgba").replace(")", ",.5)"));
 
 export const players = ["Ben", "Chris", "Derek", "Ryan"];
+export const playerColors = { "Ryan": RED, "Derek": BLUE, "Ben": GREEN, "Chris": YELLOW };
+
+export const karts = ["train", "blue", "pink", "green", "waluigi", "bullet"];
+export const kartColors = { "train": "rgb(240,104,0)", "blue": BLUE, "pink": "rgb(255,110,224)", "green": GREEN, "waluigi": "rgb(166,0,255)", "bullet": "rgb(100,100,100)" };
 
 export const trackAbbv = {
   "Luigi Circuit": "LC",

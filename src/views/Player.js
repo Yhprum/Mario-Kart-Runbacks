@@ -4,9 +4,12 @@ import { useParams, withRouter } from "react-router-dom";
 import tracks from "../data/maps.json";
 import { toPercent, total } from "../utils/utils";
 import Winrate from "../components/Winrate";
+import LineGraph from "../components/LineGraph";
+import useTrackSelect, { TrackSelect } from "../hooks/useTrackSelect";
 
 function Player({ records, stats, history }) {
   const { player } = useParams();
+  const [track, setTrack] = useTrackSelect();
 
   stats = stats[player];
   let driverGames = records.filter(record => record.driver === player && record.result !== "desync");
@@ -38,6 +41,8 @@ function Player({ records, stats, history }) {
               </tbody>
             </table>
           </Card>
+          <TrackSelect value={track} onChange={e => setTrack(e.target.value)} />
+          <LineGraph player={player} records={records} track={track} />
         </Col>
         <Col md={8}>
           Track Stats

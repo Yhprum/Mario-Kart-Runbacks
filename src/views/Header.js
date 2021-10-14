@@ -15,6 +15,9 @@ function Header(props) {
             <LinkContainer to="/">
               <Nav.Link>Stats</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/graphs">
+              <Nav.Link>Graphs</Nav.Link>
+            </LinkContainer>
             <LinkContainer to="/runbacks">
               <Nav.Link>Runback List</Nav.Link>
             </LinkContainer>
@@ -45,7 +48,7 @@ function Header(props) {
             </Navbar.Text>
             <FormControl as="select"  value={props.season} onChange={e => props.setSeason(e.target.value)}>
               <option value={0}>All Seasons</option>
-              {[1, 2, 3, 4].map(season => <option key={season} value={season}>Season {season}</option>)}
+              {[1, 2, 3, 4, 5].map(season => <option key={season} value={season}>Season {season}</option>)}
             </FormControl>
           </Nav>
         </Navbar.Collapse>
