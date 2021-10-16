@@ -39,3 +39,7 @@ th, .rt-th {
 td.track-win {
   background: rgba(0,0,0,.1);
 }
+
+.ReactTable.runbacks .rt-tr-group:nth-of-type(4n+1), .ReactTable .rt-tr-group:nth-of-type(4n+2) {
+  background-color: rgba(0,0,0,0.04);
+}

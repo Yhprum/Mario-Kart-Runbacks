@@ -32,7 +32,7 @@ function Runbacks({ records }) {
         pageSize={data.length}
         columns={columns}
         showPagination={false}
-        className="-striped -highlight"
+        className="runbacks"
       />
     </div>
   )

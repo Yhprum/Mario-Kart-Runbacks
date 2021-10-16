@@ -5,6 +5,7 @@ import ReactTable from "react-table-v6";
 import "react-table-v6/react-table.css";
 import { players } from "../utils/utils";
 import Winrate from "../components/Winrate";
+import Kart from "../components/Kart";
 
 function TrackDetails(props) {
   const { track } = useParams();
@@ -20,7 +21,8 @@ function TrackDetails(props) {
       },
       {
         Header: "kart",
-        accessor: "kart"
+        accessor: "kart",
+        Cell: row => <Kart kart={row.original.kart}/>
       },
       {
         Header: "Time",
