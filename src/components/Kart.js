@@ -5,9 +5,10 @@ import pink from "../img/karts/pink.png";
 import green from "../img/karts/green.png";
 import waluigi from "../img/karts/waluigi.png";
 import bullet from "../img/karts/bullet.png";
+import daisy from "../img/karts/daisy.png";
 
 function Kart({ kart }) {
-  let images = { train, blue, pink, green, waluigi, bullet };
+  let images = { train, blue, pink, green, waluigi, bullet, daisy };
   return (
     <img src={images[kart]} alt={kart} className="kart-icon"/>
   );

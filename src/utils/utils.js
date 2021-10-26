@@ -49,8 +49,8 @@ export const bgColors = colors.map(c=>c.replace("rgb", "rgba").replace(")", ",.5
 export const players = ["Ben", "Chris", "Derek", "Ryan"];
 export const playerColors = { "Ryan": RED, "Derek": BLUE, "Ben": GREEN, "Chris": YELLOW };
 
-export const karts = ["train", "blue", "pink", "green", "waluigi", "bullet"];
-export const kartColors = { "train": "rgb(240,104,0)", "blue": BLUE, "pink": "rgb(255,110,224)", "green": GREEN, "waluigi": "rgb(166,0,255)", "bullet": "rgb(100,100,100)" };
+export const karts = ["train", "blue", "pink", "green", "waluigi", "bullet", "daisy"];
+export const kartColors = { "train": "rgb(240,104,0)", "blue": BLUE, "pink": "rgb(255,110,224)", "green": GREEN, "waluigi": "rgb(166,0,255)", "bullet": "rgb(100,100,100)", "daisy": "rgb(229,129,33)" };
 
 export const trackAbbv = {
   "Luigi Circuit": "LC",
