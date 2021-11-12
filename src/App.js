@@ -6,7 +6,7 @@ import data from "./data/runbacks.csv";
 import Routes from "./Routes";
 import Header from "./views/Header";
 import tracks from "./data/maps.json";
-import {players, subtractDuration} from "./utils/utils";
+import { players, teams, subtractDuration } from "./utils/utils";
 
 function App() {
   const [runbacks, setRunbacks] = useState([]);
@@ -33,6 +33,12 @@ function App() {
       itemTrackWins: 0
     }
   });
+  teams.forEach(team => {
+    stats[Object.values(team)] = {
+      tracks: 0,
+      wins: 0
+    };
+  })
   records.length && Object.values(tracks).flat().forEach(track => {
     players.forEach(player => {
       stats[player][track] = {
@@ -48,8 +54,10 @@ function App() {
       if (records[2 * i][track] === "desync") continue;
       stats[records[2 * i].driver].driverTracks++;
       stats[records[2 * i].items].itemTracks++;
+      stats[[records[2 * i].driver, records[2 * i].items]].tracks++;
       stats[records[2 * i + 1].driver].driverTracks++;
       stats[records[2 * i + 1].items].itemTracks++;
+      stats[[records[2 * i + 1].driver, records[2 * i + 1].items]].tracks++;
 
       stats[records[2 * i].driver][track].driverGames++;
       stats[records[2 * i].items][track].itemGames++;
@@ -61,6 +69,7 @@ function App() {
       stats[records[winner].items][track].itemWins++;
       stats[records[winner].driver].driverTrackWins++;
       stats[records[winner].items].itemTrackWins++;
+      stats[[records[winner].driver, records[winner].items]].wins++;
 
       if (stats[records[2 * i].driver][track].fastestDriver[track] === undefined || records[2 * i][track] < stats[records[2 * i].driver][track].fastestDriver[track]) {
         stats[records[2 * i].driver][track].fastestDriver = records[2 * i];

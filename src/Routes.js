@@ -7,6 +7,7 @@ import Tracks from "./views/Tracks";
 import Runbacks from "./views/Runbacks";
 import RunbackDetails from "./views/RunbackDetails";
 import Graphs from "./views/Graphs";
+import Teams from "./views/Teams";
 
 function Routes(props) {
 
@@ -20,6 +21,9 @@ function Routes(props) {
       </Route>
       <Route path="/players/:player">
         <Player records={props.records} runbacks={props.runbacks} stats={props.stats} />
+      </Route>
+      <Route path="/players">
+        <Teams records={props.records} stats={props.stats} />
       </Route>
       <Route path="/runbacks/:runback">
         <RunbackDetails records={props.runbacks} />

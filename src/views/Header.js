@@ -24,6 +24,9 @@ function Header(props) {
             <LinkContainer to="/tracks">
               <Nav.Link>Tracks</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/players">
+              <Nav.Link>Teams</Nav.Link>
+            </LinkContainer>
             <LinkContainer to="/players/Ben">
               <Nav.Link>Ben</Nav.Link>
             </LinkContainer>
