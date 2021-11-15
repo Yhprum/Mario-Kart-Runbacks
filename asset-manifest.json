@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/Mario-Kart-Runbacks/static/css/main.d08b9513.chunk.css",
-    "main.js": "/Mario-Kart-Runbacks/static/js/main.a9c59c82.chunk.js",
-    "main.js.map": "/Mario-Kart-Runbacks/static/js/main.a9c59c82.chunk.js.map",
+    "main.js": "/Mario-Kart-Runbacks/static/js/main.9823c69a.chunk.js",
+    "main.js.map": "/Mario-Kart-Runbacks/static/js/main.9823c69a.chunk.js.map",
     "runtime-main.js": "/Mario-Kart-Runbacks/static/js/runtime-main.2c91d5b5.js",
     "runtime-main.js.map": "/Mario-Kart-Runbacks/static/js/runtime-main.2c91d5b5.js.map",
     "static/css/2.c57215b7.chunk.css": "/Mario-Kart-Runbacks/static/css/2.c57215b7.chunk.css",
-    "static/js/2.90dfeb7b.chunk.js": "/Mario-Kart-Runbacks/static/js/2.90dfeb7b.chunk.js",
-    "static/js/2.90dfeb7b.chunk.js.map": "/Mario-Kart-Runbacks/static/js/2.90dfeb7b.chunk.js.map",
+    "static/js/2.03370b2f.chunk.js": "/Mario-Kart-Runbacks/static/js/2.03370b2f.chunk.js",
+    "static/js/2.03370b2f.chunk.js.map": "/Mario-Kart-Runbacks/static/js/2.03370b2f.chunk.js.map",
     "static/js/3.d64783f4.chunk.js": "/Mario-Kart-Runbacks/static/js/3.d64783f4.chunk.js",
     "static/js/3.d64783f4.chunk.js.map": "/Mario-Kart-Runbacks/static/js/3.d64783f4.chunk.js.map",
     "index.html": "/Mario-Kart-Runbacks/index.html",
     "static/css/2.c57215b7.chunk.css.map": "/Mario-Kart-Runbacks/static/css/2.c57215b7.chunk.css.map",
     "static/css/main.d08b9513.chunk.css.map": "/Mario-Kart-Runbacks/static/css/main.d08b9513.chunk.css.map",
-    "static/js/2.90dfeb7b.chunk.js.LICENSE.txt": "/Mario-Kart-Runbacks/static/js/2.90dfeb7b.chunk.js.LICENSE.txt",
+    "static/js/2.03370b2f.chunk.js.LICENSE.txt": "/Mario-Kart-Runbacks/static/js/2.03370b2f.chunk.js.LICENSE.txt",
     "static/media/flower.9f2cff74.png": "/Mario-Kart-Runbacks/static/media/flower.9f2cff74.png",
     "static/media/mushroom.93502664.png": "/Mario-Kart-Runbacks/static/media/mushroom.93502664.png",
     "static/media/runbacks.26dccbfb.csv": "/Mario-Kart-Runbacks/static/media/runbacks.26dccbfb.csv",
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.2c91d5b5.js",
     "static/css/2.c57215b7.chunk.css",
-    "static/js/2.90dfeb7b.chunk.js",
+    "static/js/2.03370b2f.chunk.js",
     "static/css/main.d08b9513.chunk.css",
-    "static/js/main.a9c59c82.chunk.js"
+    "static/js/main.9823c69a.chunk.js"
   ]
 }
