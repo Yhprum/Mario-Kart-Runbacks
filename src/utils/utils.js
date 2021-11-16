@@ -1,5 +1,3 @@
-import train from "../img/karts/train.png";
-
 export const trackSort = track => (a, b) => toMs(a[track]) - toMs(b[track]);
 
 export const subtractDuration = (a, b) => {
@@ -33,6 +31,7 @@ export const toDuration = ms => {
 
 export function toMs(duration) {
   if (duration === undefined) return null;
+  if (duration === "desync") return Infinity;
   let arr = duration.split(/[:.]/).map(num => parseInt(num));
   return arr[0] * 60 * 1000 + arr[1] * 1000 + arr[2];
 }

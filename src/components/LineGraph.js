@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { bgColors, colors, toDuration, toMs } from "../utils/utils";
 import Chart from "chart.js/auto";
 
