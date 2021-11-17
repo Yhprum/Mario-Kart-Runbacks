@@ -12,9 +12,9 @@ function Player({ records, stats, history }) {
   const [track, setTrack] = useTrackSelect();
 
   stats = stats[player];
-  let driverGames = records.filter(record => record.driver === player && record.result !== "desync");
+  let driverGames = records.filter(record => record.driver === player && record.result !== "");
   let driver = driverGames.reduce((sum, record) => sum + (record.result === "win" ? 1 : 0), 0);
-  let itemsGames = records.filter(record => record.items === player && record.result !== "desync");
+  let itemsGames = records.filter(record => record.items === player && record.result !== "");
   let items = itemsGames.reduce((sum, record) => sum + (record.result === "win" ? 1 : 0), 0);
 
   return (

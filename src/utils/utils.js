@@ -31,7 +31,7 @@ export const toDuration = ms => {
 
 export function toMs(duration) {
   if (duration === undefined) return null;
-  if (duration === "desync") return Infinity;
+  if (duration === "") return Infinity;
   let arr = duration.split(/[:.]/).map(num => parseInt(num));
   return arr[0] * 60 * 1000 + arr[1] * 1000 + arr[2];
 }

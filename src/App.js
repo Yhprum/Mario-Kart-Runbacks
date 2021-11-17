@@ -6,7 +6,7 @@ import data from "./data/runbacks.csv";
 import Routes from "./Routes";
 import Header from "./views/Header";
 import tracks from "./data/maps.json";
-import { players, teams, subtractDuration } from "./utils/utils";
+import { players, teams, subtractDuration, toMs } from "./utils/utils";
 
 function App() {
   const [runbacks, setRunbacks] = useState([]);
@@ -51,7 +51,7 @@ function App() {
     });
 
     for (let i = 0; i < records.length / 2; i++) {
-      if (records[2 * i][track] === "desync") continue;
+      if (records[2 * i][track] === "") continue;
       stats[records[2 * i].driver].driverTracks++;
       stats[records[2 * i].items].itemTracks++;
       stats[[records[2 * i].driver, records[2 * i].items]].tracks++;
@@ -78,7 +78,7 @@ function App() {
         stats[records[2 * i + 1].driver][track].fastestDriver = records[2 * i + 1];
       }
     }
-    let record = runbacks.map(r => r[track]).reduce((prev, cur) => cur < prev ? cur : prev);
+    let record = runbacks.map(r => r[track]).reduce((prev, cur) => toMs(cur) < toMs(prev) ? cur : prev);
     players.forEach(player => stats[player][track].difference = subtractDuration(stats[player][track].fastestDriver[track], record));
   });
 

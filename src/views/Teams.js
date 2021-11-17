@@ -9,10 +9,10 @@ function Teams({ stats, records }) {
   let teamRecords = {};
   if (records.length) {
     let tracks = Object.values(maps).flat();
-    let trackRecords = tracks.map(track => records.reduce((prev, cur) => cur[track] < prev[track] ? cur : prev));
+    let trackRecords = tracks.map(track => records.reduce((prev, cur) => toMs(cur[track]) < toMs(prev[track]) ? cur : prev));
 
     teams.forEach(team => {
-      let games = records.filter(record => record.driver === team.driver && record.items === team.items && record.result !== "desync");
+      let games = records.filter(record => record.driver === team.driver && record.items === team.items && record.result !== "");
       teamRecords[Object.values(team)] = {
         games: games.length,
         wins: games.reduce((sum, record) => sum + (record.result === "win" ? 1 : 0), 0),

@@ -12,7 +12,7 @@ function Graphs({ records }) {
   useEffect(() => {
     if (!records.length) return;
 
-    let playerRecords = players.map(player => records.filter(r => r.driver === player || r.items === player).map(record => record.driver === player && record[track] !== "desync" ? record : []));
+    let playerRecords = players.map(player => records.filter(r => r.driver === player || r.items === player).map(record => record.driver === player && record[track] !== "" ? record : []));
     let data = playerRecords.map((record, i) => ({
       label: players[i],
       data: record.map(r => toMs(r[track])),
@@ -44,7 +44,7 @@ function Graphs({ records }) {
     });
 
     let tracks = Object.values(maps).flat();
-    let trackRecords = tracks.map(track => records.map((record, i) => records.slice(0, i + 2).reduce((prev, cur) => cur[track] < prev[track] ? cur : prev)));
+    let trackRecords = tracks.map(track => records.map((record, i) => records.slice(0, i + 2).reduce((prev, cur) => toMs(cur[track]) < toMs(prev[track]) ? cur : prev)));
     let numRecords = [];
     for (let i = 0; i < records.length / 2; i++) {
       if (graphType === "kart")

@@ -3,6 +3,7 @@ import ReactTable from "react-table-v6";
 import "react-table-v6/react-table.css";
 import Kart from "../components/Kart";
 import { Link } from "react-router-dom";
+import {toMs} from "../utils/utils";
 
 function Runbacks({ records }) {
   const columns = useMemo(() => {
@@ -11,7 +12,7 @@ function Runbacks({ records }) {
     cols[cols.findIndex(c=>c.accessor==="runback")] = {
       Header: "Episode",
       accessor: "runback",
-      sortType: (a, b) => a.number - b.number,
+      sortMethod: (a, b) => a - b,
       Cell: row => <Link to={`/runbacks/${row.original.runback}`}>ep. {row.original.runback}</Link>
     };
     cols[cols.findIndex(c=>c.accessor==="kart")] = {
@@ -24,6 +25,7 @@ function Runbacks({ records }) {
   }, [records]);
 
   const data = useMemo(() => records, [records]);
+  const regex = /[0-9]*:[0-9]{2}\.[0-9]{3}/;
 
   return (
     <div>
@@ -33,6 +35,7 @@ function Runbacks({ records }) {
         columns={columns}
         showPagination={false}
         className="runbacks"
+        defaultSortMethod={(a, b) => regex.test(a) || regex.test(b) ? toMs(a) - toMs(b) : a.localeCompare(b)}
       />
     </div>
   )

@@ -6,7 +6,7 @@ function LineGraph({ records, player, track }) {
   useEffect(() => {
     if (!records.length) return;
 
-    let times = records.filter(record => record.driver === player && record[track] !== "desync");
+    let times = records.filter(record => record.driver === player && record[track] !== "");
     let data = {
       label: "Time",
       data: times.map(r => toMs(r[track])),

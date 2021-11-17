@@ -2,7 +2,7 @@ import React from "react";
 import tracks from "../data/maps.json";
 import { Row, Col, Table } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
-import { players } from "../utils/utils";
+import { players, toMs } from "../utils/utils";
 import Winrate from "../components/Winrate";
 import Kart from "../components/Kart";
 
@@ -51,7 +51,7 @@ function Tracks(props) {
             </thead>
             <tbody>
             {props.records.length ? Object.values(tracks).flat().map(track => {
-              let record = props.records.reduce((prev, cur) => cur[track] < prev[track] ? cur : prev);
+              let record = props.records.reduce((prev, cur) => toMs(cur[track]) < toMs(prev[track]) ? cur : prev);
               return (
                 <tr key={track}>
                   <td className="clickable" onClick={() => props.history.push("/tracks/" + track)}>{track}</td>

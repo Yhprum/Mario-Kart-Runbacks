@@ -30,9 +30,9 @@ function Records(props) {
             </thead>
             <tbody>
             {props.records.length ? players.map(player => {
-              let driverGames = props.records.filter(r => r.driver === player && r.result !== "desync");
+              let driverGames = props.records.filter(r => r.driver === player && r.result !== "");
               let driverWins = driverGames.filter(r => r.result === "win");
-              let itemGames = props.records.filter(r => r.items === player && r.result !== "desync");
+              let itemGames = props.records.filter(r => r.items === player && r.result !== "");
               let itemWins = itemGames.filter(r => r.result === "win");
               return (
                 <tr key={player}>

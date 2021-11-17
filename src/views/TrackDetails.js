@@ -3,7 +3,7 @@ import { Container, Table, Row, Col } from "react-bootstrap";
 import { Link, useParams, withRouter } from "react-router-dom";
 import ReactTable from "react-table-v6";
 import "react-table-v6/react-table.css";
-import { players } from "../utils/utils";
+import { players, toMs } from "../utils/utils";
 import Winrate from "../components/Winrate";
 import Kart from "../components/Kart";
 
@@ -26,12 +26,13 @@ function TrackDetails(props) {
       },
       {
         Header: "Time",
-        accessor: "time"
+        accessor: "time",
+        sortMethod: (a, b) => toMs(a) - toMs(b),
       },
       {
         Header: "Episode",
         accessor: "runback",
-        sortType: (a, b) => a.number - b.number,
+        sortMethod: (a, b) => a - b,
         Cell: row => <Link to={`/runbacks/${row.original.runback}`}>ep. {row.original.runback}</Link>
       }
     ], []
