@@ -42,5 +42,6 @@
   "41": ["LC", "BC", "MCR", "PB", "DC", "WC", "WS", "YC", "DDJ", "MB", "DDD", "MCT", "SL", "DKM", "BP", "RR"],
   "42": ["LC", "YC", "DC", "BC", "MB", "BP", "DKM", "DDD", "PB", "WC", "SL", "WS", "MCR", "MCT", "DDJ", "RR"],
   "43": ["LC", "MCT", "PB", "MCR", "BP", "DDJ", "WC", "DDD", "BC", "MB", "DKM", "WS", "SL", "YC", "DC", "RR"],
-  "44": ["LC", "DKM", "MCR", "DDJ", "SL", "WS", "DC", "DDD", "PB", "MB", "WC", "BP", "YC", "MCT", "BC", "RR"]
+  "44": ["LC", "DKM", "MCR", "DDJ", "SL", "WS", "DC", "DDD", "PB", "MB", "WC", "BP", "YC", "MCT", "BC", "RR"],
+  "45": ["LC", "SL", "MCR", "BC", "DDJ", "PB", "WC", "DDD", "WS", "BP", "DC", "MCT", "YC", "DKM", "MB", "RR"]
 }

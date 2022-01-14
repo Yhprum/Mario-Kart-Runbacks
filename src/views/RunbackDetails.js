@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import maps from "../data/maps.json";
 import Chart from "chart.js/auto";
-import { colors, bgColors, toDuration, toMs, trackSort, trackAbbv } from "../utils/utils";
+import { toDuration, toMs, trackSort, trackAbbv, playerColors } from "../utils/utils";
 import { Table } from "react-bootstrap";
 import Kart from "../components/Kart";
 import order from "../data/order";
@@ -29,8 +29,8 @@ function RunbackDetails({ records }) {
       label: runback.driver + " + " + runback.items,
       data: times[i],
       fill: false,
-      backgroundColor: bgColors[i],
-      borderColor: colors[i]
+      backgroundColor: playerColors[runback.driver].replace("rgb", "rgba").replace(")", ",.5)"),
+      borderColor: playerColors[runback.driver]
     }));
     data.push({
       label: `${timeRecord.driver} + ${timeRecord.items} (Runback ${timeRecord.runback})`,
