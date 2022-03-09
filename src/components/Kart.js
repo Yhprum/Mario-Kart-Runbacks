@@ -10,9 +10,11 @@ import boo from "../img/karts/boo.png";
 import luigi from "../img/karts/luigi.png";
 import mario from "../img/karts/mario.png";
 import peach from "../img/karts/peach.png";
+import petey from "../img/karts/petey.png";
+import bowser from "../img/karts/bowser.png";
 
 function Kart({ kart }) {
-  let images = { train, blue, pink, green, waluigi, bullet, daisy, boo, luigi, mario, peach };
+  let images = { train, blue, pink, green, waluigi, bullet, daisy, boo, luigi, mario, peach, petey, bowser };
   return (
     <img src={images[kart]} alt={kart} className="kart-icon"/>
   );
