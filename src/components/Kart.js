@@ -12,9 +12,12 @@ import mario from "../img/karts/mario.png";
 import peach from "../img/karts/peach.png";
 import petey from "../img/karts/petey.png";
 import bowser from "../img/karts/bowser.png";
+import parade from "../img/karts/parade.png";
+import wario from "../img/karts/wario.png";
+import dk from "../img/karts/dk.png";
 
 function Kart({ kart }) {
-  let images = { train, blue, pink, green, waluigi, bullet, daisy, boo, luigi, mario, peach, petey, bowser };
+  let images = { train, blue, pink, green, waluigi, bullet, daisy, boo, luigi, mario, peach, petey, bowser, parade, wario, dk };
   return (
     <img src={images[kart]} alt={kart} className="kart-icon"/>
   );
