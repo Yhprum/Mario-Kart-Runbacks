@@ -51,7 +51,7 @@ function Header(props) {
             </Navbar.Text>
             <FormControl as="select"  value={props.season} onChange={e => props.setSeason(e.target.value)}>
               <option value={0}>All Seasons</option>
-              {[1, 2, 3, 4, 5, 6, 7].map(season => <option key={season} value={season}>Season {season}</option>)}
+              {[1, 2, 3, 4, 5, 6, 7, 8].map(season => <option key={season} value={season}>Season {season}</option>)}
             </FormControl>
           </Nav>
         </Navbar.Collapse>
