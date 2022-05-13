@@ -56,8 +56,8 @@ players.forEach(driver => {
 });
 export const teams = teamsArr;
 
-export const karts = ["train", "blue", "pink", "green", "waluigi", "bullet", "daisy"];
-export const kartColors = { "train": "rgb(240,104,0)", "blue": BLUE, "pink": "rgb(255,110,224)", "green": GREEN, "waluigi": "rgb(166,0,255)", "bullet": "rgb(100,100,100)", "daisy": "rgb(229,129,33)" };
+export const karts = ["train", "blue", "pink", "green", "waluigi", "bullet", "daisy", "parade"];
+export const kartColors = { "train": "rgb(240,104,0)", "blue": BLUE, "pink": "rgb(255,110,224)", "green": GREEN, "waluigi": "rgb(166,0,255)", "bullet": "rgb(100,100,100)", "daisy": "rgb(229,129,33)", "parade": "rgb(255,215,0)" };
 
 export const trackAbbv = {
   "Luigi Circuit": "LC",
