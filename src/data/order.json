@@ -63,5 +63,11 @@
   "62": ["LC", "MB", "DDJ", "YC", "WS", "SL", "WC", "BC", "MCR", "DC", "PB", "DDD", "DKM", "BP", "MCT", "RR"],
   "63": ["LC", "MCR", "DC", "MCT", "DDD", "DDJ", "SL", "MB", "BC", "DKM", "PB", "YC", "WS", "WC", "BP", "RR"],
   "64": ["LC", "WC", "DDD", "SL", "DDJ", "BC", "MB", "PB", "BP", "WS", "MCR", "MCT", "DKM", "YC", "DC", "RR"],
-  "65": ["LC", "DKM", "DDJ", "PB", "WS", "BP", "DDD", "DC", "BC", "MB", "WC", "MCT", "SL", "MCT", "YC", "RR"]
+  "65": ["LC", "DKM", "DDJ", "PB", "WS", "BP", "DDD", "DC", "BC", "MB", "WC", "MCT", "SL", "MCT", "YC", "RR"],
+  "66": ["LC", "WS", "PB", "MCT", "DDJ", "DKM", "BP", "DDD", "YC", "MCR", "WC", "MB", "DC", "SL", "BC", "RR"],
+  "67": ["LC", "YC", "BC", "SL", "PB", "DC", "BP", "WC", "MCT", "MCR", "DDJ", "WS", "MB", "DDD", "DKM", "RR"],
+  "68": ["LC", "DC", "DDJ", "BC", "DKM", "WC", "PB", "YC", "DDD", "WS", "BP", "SL", "MCR", "MB", "MCT", "RR"],
+  "69": ["LC", "SL", "WS", "WC", "DDJ", "YC", "MB", "PB", "DKM", "DDD", "MCT", "MCR", "BP", "BC", "DC", "RR"],
+  "70": ["LC", "DDD", "SL", "MCR", "MB", "WS", "BC", "MCT", "DKM", "BP", "WC", "DDJ", "PB", "YC", "DC", "RR"],
+  "71": ["LC", "PB", "SL", "WS", "DKM", "MB", "DDD", "DC", "WC", "DDJ", "BC", "MCR", "YC", "MCT", "BP", "RR"]
 }
