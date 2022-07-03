@@ -1,11 +1,8 @@
-import React from "react";
 import { Table } from "react-bootstrap";
-import { withRouter } from "react-router-dom";
 import { teams, toMs, toPercent } from "../utils/utils";
 import maps from "../data/maps.json";
 
 function Teams({ stats, records }) {
-
   let teamRecords = {};
   if (records.length) {
     let tracks = Object.values(maps).flat();
@@ -56,4 +53,4 @@ function Teams({ stats, records }) {
   )
 }
 
-export default withRouter(Teams);
+export default Teams;

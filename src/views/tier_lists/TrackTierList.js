@@ -1,4 +1,3 @@
-import React from "react";
 import tracks from "../../data/tier_lists/tracks.json";
 import trackNames from "../../data/maps.json";
 import TierThumbnail from "../../components/TierThumbnail";
@@ -12,7 +11,6 @@ function TrackTierList() {
       "scores": Object.keys(tracks).map(player => ({ "name": player, "score": tracks[player].indexOf(track) + 1 }))
     };
   });
-
 
   return (
     <div className="container container-max-lg">

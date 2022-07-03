@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { kartColors, karts, playerColors, players, toDuration, toMs } from "../utils/utils";
 import Chart from "chart.js/auto";

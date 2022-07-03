@@ -1,13 +1,12 @@
-import React from "react";
 import tracks from "../data/maps.json";
 import { Row, Col, Table } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { players, toMs } from "../utils/utils";
 import Winrate from "../components/Winrate";
 import Kart from "../components/Kart";
 
-function Tracks(props) {
-
+function Tracks({ records, stats }) {
+  let navigate = useNavigate();
   return (
     <div className="container">
       <Row>
@@ -23,13 +22,13 @@ function Tracks(props) {
             </tr>
             </thead>
             <tbody>
-            {props.records.length ? players.map(player => {
+            {records.length ? players.map(player => {
               return (
                 <tr key={player}>
-                  <td className="clickable" onClick={() => props.history.push("/players/" + player)}>{player}</td>
-                  <td><Winrate numerator={props.stats[player].driverTrackWins} denominator={props.stats[player].driverTracks} /></td>
-                  <td><Winrate numerator={props.stats[player].itemTrackWins} denominator={props.stats[player].itemTracks} /></td>
-                  <td><Winrate numerator={props.stats[player].driverTrackWins + props.stats[player].itemTrackWins} denominator={props.stats[player].driverTracks + props.stats[player].itemTracks} /></td>
+                  <td className="clickable" onClick={() => navigate("/players/" + player)}>{player}</td>
+                  <td><Winrate numerator={stats[player].driverTrackWins} denominator={stats[player].driverTracks} /></td>
+                  <td><Winrate numerator={stats[player].itemTrackWins} denominator={stats[player].itemTracks} /></td>
+                  <td><Winrate numerator={stats[player].driverTrackWins + stats[player].itemTrackWins} denominator={stats[player].driverTracks + stats[player].itemTracks} /></td>
                 </tr>
               );
             }) : null}
@@ -50,11 +49,11 @@ function Tracks(props) {
             </tr>
             </thead>
             <tbody>
-            {props.records.length ? Object.values(tracks).flat().map(track => {
-              let record = props.records.reduce((prev, cur) => toMs(cur[track]) < toMs(prev[track]) ? cur : prev);
+            {records.length ? Object.values(tracks).flat().map(track => {
+              let record = records.reduce((prev, cur) => toMs(cur[track]) < toMs(prev[track]) ? cur : prev);
               return (
                 <tr key={track}>
-                  <td className="clickable" onClick={() => props.history.push("/tracks/" + track)}>{track}</td>
+                  <td className="clickable" onClick={() => navigate("/tracks/" + track)}>{track}</td>
                   <td>{record.driver}</td>
                   <td>{record.items}</td>
                   <td><Kart kart={record.kart} /></td>
@@ -71,4 +70,4 @@ function Tracks(props) {
   )
 }
 
-export default withRouter(Tracks);
+export default Tracks;

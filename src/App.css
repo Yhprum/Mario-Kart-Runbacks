@@ -70,14 +70,14 @@ td.track-win {
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
-  padding-left: 7.5px;
+  padding-left: 8px;
 }
 
 .tier-thumbnail {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 7.5px;
+  margin: 8px;
 }
 
 .tier-s {

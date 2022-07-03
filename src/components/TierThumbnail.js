@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
@@ -15,7 +14,7 @@ function TierThumbnail({ item, type }) {
         overlay={
           <Tooltip id="scores">
             {item.scores.sort((a, b) => a.score - b.score).map(s =>
-              <div>{s.name}: {s.score}</div>
+              <div key={s.name}>{s.name}: {s.score}</div>
             )}
           </Tooltip>
         }

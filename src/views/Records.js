@@ -1,7 +1,6 @@
-import React from "react";
 import tracks from "../data/maps.json";
 import { Row, Col, Tabs, Tab, Table } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TrackBlock from "./TrackBlock";
 import Mushroom from "../img/cups/mushroom.png";
 import Flower from "../img/cups/flower.png";
@@ -11,7 +10,8 @@ import { players, trackSort } from "../utils/utils";
 import Winrate from "../components/Winrate";
 import Kart from "../components/Kart";
 
-function Records(props) {
+function Records({ records }) {
+  let navigate = useNavigate();
   let cups = { Mushroom, Flower, Star, Special };
 
   return (
@@ -29,14 +29,14 @@ function Records(props) {
             </tr>
             </thead>
             <tbody>
-            {props.records.length ? players.map(player => {
-              let driverGames = props.records.filter(r => r.driver === player && r.result !== "");
+            {records.length ? players.map(player => {
+              let driverGames = records.filter(r => r.driver === player && r.result !== "");
               let driverWins = driverGames.filter(r => r.result === "win");
-              let itemGames = props.records.filter(r => r.items === player && r.result !== "");
+              let itemGames = records.filter(r => r.items === player && r.result !== "");
               let itemWins = itemGames.filter(r => r.result === "win");
               return (
                 <tr key={player}>
-                  <td className="clickable" onClick={() => props.history.push("/players/" + player)}>{player}</td>
+                  <td className="clickable" onClick={() => navigate("/players/" + player)}>{player}</td>
                   <td><Winrate numerator={driverWins.length} denominator={driverGames.length} /></td>
                   <td><Winrate numerator={itemWins.length} denominator={itemGames.length} /></td>
                   <td><Winrate numerator={driverWins.length + itemWins.length} denominator={driverGames.length + itemGames.length} /></td>
@@ -60,7 +60,7 @@ function Records(props) {
             </tr>
             </thead>
             <tbody>
-            {props.records.length ? props.records.slice(0).sort(trackSort("time")).slice(0, 5).map((record, i) => {
+            {records.length ? records.slice(0).sort(trackSort("time")).slice(0, 5).map((record, i) => {
               return (
                 <tr key={i}>
                   <td>{i + 1}</td>
@@ -85,7 +85,7 @@ function Records(props) {
                 {tracks[cup].map(track => {
                   return (
                     <Col md={6} key={track}>
-                      <TrackBlock track={track} data={props.records} />
+                      <TrackBlock track={track} data={records} />
                     </Col>
                   );
                 })}
@@ -98,4 +98,4 @@ function Records(props) {
   )
 }
 
-export default withRouter(Records);
+export default Records;

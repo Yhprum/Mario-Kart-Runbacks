@@ -1,4 +1,3 @@
-import React from "react";
 import train from "../img/karts/train.png";
 import blue from "../img/karts/blue.png";
 import pink from "../img/karts/pink.png";

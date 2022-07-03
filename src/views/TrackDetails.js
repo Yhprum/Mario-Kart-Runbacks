@@ -1,16 +1,17 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Container, Table, Row, Col } from "react-bootstrap";
-import { Link, useParams, withRouter } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import ReactTable from "react-table-v6";
 import "react-table-v6/react-table.css";
 import { players, toMs } from "../utils/utils";
 import Winrate from "../components/Winrate";
 import Kart from "../components/Kart";
 
-function TrackDetails(props) {
+function TrackDetails({ records, stats }) {
+  let navigate = useNavigate();
   const { track } = useParams();
 
-  const columns = React.useMemo(() => [
+  const columns = useMemo(() => [
       {
         Header: "Driver",
         accessor: "driver"
@@ -38,7 +39,7 @@ function TrackDetails(props) {
     ], []
   );
 
-  const data = useMemo(() => props.records.map(record => {
+  const data = useMemo(() => records.map(record => {
       return {
         runback: record.runback,
         driver: record.driver,
@@ -46,7 +47,7 @@ function TrackDetails(props) {
         kart: record.kart,
         time: record[track]
       }
-    }), [props.records, track]
+    }), [records, track]
   );
 
   return (
@@ -65,11 +66,11 @@ function TrackDetails(props) {
               </tr>
             </thead>
             <tbody>
-              {props.records.length ? players.map(player => {
-                let t = props.stats[player][track];
+              {records.length ? players.map(player => {
+                let t = stats[player][track];
                 return (
                   <tr key={player}>
-                    <td className="clickable" onClick={() => props.history.push("/players/" + player)}>{player}</td>
+                    <td className="clickable" onClick={() => navigate("/players/" + player)}>{player}</td>
                     <td><Winrate numerator={t.driverWins} denominator={t.driverGames} /></td>
                     <td><Winrate numerator={t.itemWins} denominator={t.itemGames} /></td>
                     <td><Winrate numerator={t.driverWins + t.itemWins} denominator={t.driverGames + t.itemGames} /></td>
@@ -95,4 +96,4 @@ function TrackDetails(props) {
   )
 }
 
-export default withRouter(TrackDetails);
+export default TrackDetails;

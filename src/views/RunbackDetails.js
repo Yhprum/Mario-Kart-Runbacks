@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import maps from "../data/maps.json";
 import Chart from "chart.js/auto";

@@ -1,13 +1,13 @@
-import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import { useParams, withRouter } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import tracks from "../data/maps.json";
 import { toPercent, total } from "../utils/utils";
 import Winrate from "../components/Winrate";
 import LineGraph from "../components/LineGraph";
 import useTrackSelect, { TrackSelect } from "../hooks/useTrackSelect";
 
-function Player({ records, stats, history }) {
+function Player({ records, stats }) {
+  let navigate = useNavigate();
   const { player } = useParams();
   const [track, setTrack] = useTrackSelect();
 
@@ -62,7 +62,7 @@ function Player({ records, stats, history }) {
                 {records.length ? Object.values(tracks).flat().map(track => {
                   return (
                     <tr key={track}>
-                      <td className="clickable" onClick={() => history.push("/tracks/" + track)}>{track}</td>
+                      <td className="clickable" onClick={() => navigate("/tracks/" + track)}>{track}</td>
                       <td className={stats[track].difference === 0 ? "fw-bold" : null}>{stats[track].fastestDriver[track]}</td>
                       <td>{stats[track].difference === 0 ? "-" : "+" + stats[track].difference.toFixed(3)}</td>
                       <td>{toPercent(stats[track].driverWins / stats[track].driverGames)}</td>
@@ -88,4 +88,4 @@ function Player({ records, stats, history }) {
   )
 }
 
-export default withRouter(Player);
+export default Player;

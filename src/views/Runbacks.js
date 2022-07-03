@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import ReactTable from "react-table-v6";
 import "react-table-v6/react-table.css";
 import Kart from "../components/Kart";

@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Papa from "papaparse";
 import data from "./data/runbacks.csv";
-import Routes from "./Routes";
+import Router from "./Router";
 import Header from "./views/Header";
 import tracks from "./data/maps.json";
 import { players, teams, subtractDuration, toMs } from "./utils/utils";
@@ -85,7 +85,7 @@ function App() {
   return (
     <div className="App">
       <Header season={season} setSeason={setSeason} />
-      <Routes records={records} stats={stats} runbacks={runbacks} />
+      <Router records={records} stats={stats} runbacks={runbacks} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import tracks from "../data/maps.json";
 
 export default function useTrackSelect(initialState = "time") {
