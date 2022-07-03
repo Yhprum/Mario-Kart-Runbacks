@@ -44,6 +44,9 @@ function Header(props) {
                 <NavDropdown.Item key={track} onClick={() => props.history.push("/tracks/" + track)}>{track}</NavDropdown.Item>
               )}
             </NavDropdown>
+            <NavDropdown title="Tier Lists" id="basic-nav-dropdown">
+              <NavDropdown.Item onClick={() => props.history.push("/tier-list/tracks")}>Tracks</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <Nav>
             <Navbar.Text>

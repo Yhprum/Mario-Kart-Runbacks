@@ -8,6 +8,7 @@ import Runbacks from "./views/Runbacks";
 import RunbackDetails from "./views/RunbackDetails";
 import Graphs from "./views/Graphs";
 import Teams from "./views/Teams";
+import TrackTierList from "./views/tier_lists/TrackTierList";
 
 function Routes(props) {
 
@@ -33,6 +34,9 @@ function Routes(props) {
       </Route>
       <Route path="/graphs">
         <Graphs records={props.records} />
+      </Route>
+      <Route path="/tier-list/tracks">
+        <TrackTierList />
       </Route>
       <Route path="/">
         <Records records={props.records} />
