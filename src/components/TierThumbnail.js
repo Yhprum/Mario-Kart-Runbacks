@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 function TierThumbnail({ item, type }) {
-  let images = require.context("../img", true);
-
+  let images = require.context("../img", true, /.png$/);
   return (
     <div className="tier-thumbnail">
       <Link to={`/tracks/${item.name}`}>
-        <img src={images(`./${type}/${item.name}.png`).default} alt={item.name} />
+        <img src={images(`./${type}/${item.name}.png`)} alt={item.name} />
       </Link>
       <OverlayTrigger
         placement="bottom"
