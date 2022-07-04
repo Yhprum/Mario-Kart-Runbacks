@@ -1,9 +1,9 @@
 import { useMemo } from "react";
-import ReactTable from "react-table-v6";
-import "react-table-v6/react-table.css";
 import Kart from "../components/Kart";
 import { Link } from "react-router-dom";
-import {toMs} from "../utils/utils";
+import { Table } from "react-bootstrap";
+import { useTable, useSortBy } from "react-table";
+import { tableSort } from "../utils/tableUtils";
 
 function Runbacks({ records }) {
   const columns = useMemo(() => {
@@ -12,31 +12,59 @@ function Runbacks({ records }) {
     cols[cols.findIndex(c=>c.accessor==="runback")] = {
       Header: "Episode",
       accessor: "runback",
-      sortMethod: (a, b) => a - b,
-      Cell: row => <Link to={`/runbacks/${row.original.runback}`}>ep. {row.original.runback}</Link>
+      Cell: ({ row }) => <Link to={`/runbacks/${row.original.runback}`}>ep. {row.original.runback}</Link>
     };
     cols[cols.findIndex(c=>c.accessor==="kart")] = {
       Header: "kart",
       accessor: "kart",
-      Cell: row => <Kart kart={row.original.kart} />
+      Cell: ({ row }) => <Kart kart={row.original.kart} />
     };
     [cols[0], cols[1]] = [cols[1], cols[0]];
     return cols;
   }, [records]);
-
   const data = useMemo(() => records, [records]);
-  const regex = /[0-9]*:[0-9]{2}\.[0-9]{3}/;
+  const sortTypes = {
+    alphanumeric: useMemo(() => tableSort, [])
+  };
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({ columns, data, sortTypes }, useSortBy);
 
   return (
     <div>
-      <ReactTable
-        data={data}
-        pageSize={data.length}
-        columns={columns}
-        showPagination={false}
-        className="runbacks"
-        defaultSortMethod={(a, b) => regex.test(a) || regex.test(b) ? toMs(a) - toMs(b) : a.localeCompare(b)}
-      />
+      <Table bordered className="runbacks" {...getTableProps()}>
+        <thead>
+        {headerGroups.map(headerGroup => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map(column => (
+              <th className={column.isSorted ? column.isSortedDesc ? "sort-desc" : "sort-asc" : ""} {...column.getHeaderProps(column.getSortByToggleProps({ title: column.Header }))}>
+                {column.render("Header")}
+              </th>
+            ))}
+          </tr>
+        ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+        {rows.map(row => {
+          prepareRow(row)
+          return (
+            <tr {...row.getRowProps()}>
+              {row.cells.map(cell => {
+                return (
+                  <td {...cell.getCellProps()}>
+                    {cell.render('Cell')}
+                  </td>
+                )
+              })}
+            </tr>
+          )
+        })}
+        </tbody>
+      </Table>
     </div>
   )
 }

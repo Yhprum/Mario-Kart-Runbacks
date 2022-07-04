@@ -1,0 +1,53 @@
+table.table .sort-desc {
+  box-shadow: inset 0 -3px 0 0 rgba(0,0,0,.6);
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+table.table .sort-asc {
+  box-shadow: inset 0 3px 0 0 rgba(0,0,0,.6);
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+.table>:not(caption)>*>* {
+  padding: 0.35rem 0.5rem;
+}
+
+.runbacks>:not(:first-child), .tracks>:not(:first-child) {
+  border-top: 0;
+}
+
+.runbacks>thead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 15px 0 rgb(0 0 0 / 15%);
+  user-select: none;
+}
+
+.runbacks tbody>tr:nth-of-type(4n+1), .runbacks tbody>tr:nth-of-type(4n+2) {
+  background-color: whitesmoke;
+}
+
+.runbacks th {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tracks>thead {
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: #ffffff;
+  box-shadow: 0 2px 15px 0 rgb(0 0 0 / 15%);
+  user-select: none;
+}
+
+.tracks tbody>tr:nth-of-type(2n+1) {
+  background-color: whitesmoke;
+}
+
+.pagination {
+  display: block;
+}

@@ -25,75 +25,8 @@ th, .rt-th {
   text-transform: capitalize;
 }
 
-.ReactTable .rt-table {
-  overflow: unset!important;
-}
-
-.ReactTable .rt-thead.-header {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  background-color: #ffffff;
-}
-
 td.track-win {
   background: rgba(0,0,0,.1);
-}
-
-.ReactTable.runbacks .rt-tr-group:nth-of-type(4n+1), .ReactTable .rt-tr-group:nth-of-type(4n+2) {
-  background-color: rgba(0,0,0,0.04);
-}
-
-.tier-row {
-  display: flex;
-  margin-bottom: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,.2),0 3px 5px rgba(0,0,0,.1)
-}
-
-.tier-header {
-  position: relative;
-  font-size: 1.3rem;
-  font-family: Roboto-Bold,sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 75px;
-  min-height: 138px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.tier-body {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 100%;
-  padding-left: 8px;
-}
-
-.tier-thumbnail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 8px;
-}
-
-.tier-s {
-  background-color: rgb(255, 127, 127);
-}
-
-.tier-a {
-  background-color: rgb(255, 191, 127);
-}
-
-.tier-b {
-  background-color: #FFFF7F;
-}
-
-.tier-c {
-  background-color: rgb(191, 255, 127);
 }
 
 .container-max-lg {

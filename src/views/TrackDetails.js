@@ -1,11 +1,11 @@
 import { useMemo } from "react";
-import { Container, Table, Row, Col } from "react-bootstrap";
+import { Container, Table, Row, Col, Button } from "react-bootstrap";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import ReactTable from "react-table-v6";
-import "react-table-v6/react-table.css";
-import { players, toMs } from "../utils/utils";
+import { players } from "../utils/utils";
 import Winrate from "../components/Winrate";
 import Kart from "../components/Kart";
+import { useTable, useSortBy, usePagination } from "react-table";
+import { tableSort } from "../utils/tableUtils";
 
 function TrackDetails({ records, stats }) {
   let navigate = useNavigate();
@@ -23,18 +23,16 @@ function TrackDetails({ records, stats }) {
       {
         Header: "kart",
         accessor: "kart",
-        Cell: row => <Kart kart={row.original.kart}/>
+        Cell: ({ row }) => <Kart kart={row.original.kart}/>
       },
       {
         Header: "Time",
         accessor: "time",
-        sortMethod: (a, b) => toMs(a) - toMs(b),
       },
       {
         Header: "Episode",
         accessor: "runback",
-        sortMethod: (a, b) => a - b,
-        Cell: row => <Link to={`/runbacks/${row.original.runback}`}>ep. {row.original.runback}</Link>
+        Cell: ({ row }) => <Link to={`/runbacks/${row.original.runback}`}>ep. {row.original.runback}</Link>
       }
     ], []
   );
@@ -48,6 +46,33 @@ function TrackDetails({ records, stats }) {
         time: record[track]
       }
     }), [records, track]
+  );
+  const sortTypes = {
+    alphanumeric: useMemo(() => tableSort, [])
+  };
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    prepareRow,
+    page,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    pageCount,
+    gotoPage,
+    nextPage,
+    previousPage,
+    state: { pageIndex },
+  } = useTable({
+    columns,
+    data,
+    sortTypes,
+    initialState: {
+      sortBy: useMemo(() => [{ id: "time" }], [])}
+    },
+    useSortBy,
+    usePagination
   );
 
   return (
@@ -82,14 +107,55 @@ function TrackDetails({ records, stats }) {
         </Col>
         <Col>
           <h4>Standings</h4>
-          <ReactTable
-            data={data}
-            pageSize={data.length}
-            columns={columns}
-            showPagination={false}
-            className="-striped -highlight"
-            defaultSorted={[{id: "time"}]}
-          />
+          <Table bordered className="tracks" {...getTableProps()}>
+            <thead>
+            {headerGroups.map(headerGroup => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map(column => (
+                  <th className={column.isSorted ? column.isSortedDesc ? "sort-desc" : "sort-asc" : ""} {...column.getHeaderProps(column.getSortByToggleProps({ title: column.Header }))}>
+                    {column.render("Header")}
+                  </th>
+                ))}
+              </tr>
+            ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+            {page.map(row => {
+              prepareRow(row)
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map(cell => {
+                    return (
+                      <td {...cell.getCellProps()}>
+                        {cell.render('Cell')}
+                      </td>
+                    )
+                  })}
+                </tr>
+              )
+            })}
+            </tbody>
+          </Table>
+          <div className="pagination">
+            <Button variant="outline-secondary" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+              {'<<'}
+            </Button>{' '}
+            <Button variant="outline-secondary" onClick={() => previousPage()} disabled={!canPreviousPage}>
+              {'<'}
+            </Button>{' '}
+            <span>
+              Page{' '}
+              <strong>
+                {pageIndex + 1} of {pageOptions.length}
+              </strong>{' '}
+            </span>
+            <Button variant="outline-secondary" onClick={() => nextPage()} disabled={!canNextPage}>
+              {'>'}
+            </Button>{' '}
+            <Button variant="outline-secondary" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+              {'>>'}
+            </Button>
+          </div>
         </Col>
       </Row>
     </Container>

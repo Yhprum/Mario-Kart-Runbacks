@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import "./css/table.css";
+import "./css/tiers.css";
 import Papa from "papaparse";
 import data from "./data/runbacks.csv";
 import Router from "./Router";
