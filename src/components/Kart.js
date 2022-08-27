@@ -16,9 +16,12 @@ import wario from "../img/karts/wario.png";
 import dk from "../img/karts/dk.png";
 import birdo from "../img/karts/birdo.png";
 import yoshi from "../img/karts/yoshi.png";
+import RattleBuggy from "../img/karts/RattleBuggy.png";
+import GooGooBuggy from "../img/karts/GooGooBuggy.png";
+import ParaWing from "../img/karts/ParaWing.png";
 
 function Kart({ kart }) {
-  let images = { train, blue, pink, green, waluigi, bullet, daisy, boo, luigi, mario, peach, petey, bowser, parade, wario, dk, birdo, yoshi };
+  let images = { train, blue, pink, green, waluigi, bullet, daisy, boo, luigi, mario, peach, petey, bowser, parade, wario, dk, birdo, yoshi, RattleBuggy, GooGooBuggy, ParaWing };
   return (
     <img src={images[kart]} alt={kart} className="kart-icon"/>
   );
