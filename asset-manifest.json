@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Mario-Kart-Runbacks/static/css/main.e256da11.css",
-    "main.js": "/Mario-Kart-Runbacks/static/js/main.5c99603b.js",
-    "static/media/runbacks.csv": "/Mario-Kart-Runbacks/static/media/runbacks.f0973df59e5665b1c086.csv",
+    "main.js": "/Mario-Kart-Runbacks/static/js/main.f5537fc1.js",
+    "static/media/runbacks.csv": "/Mario-Kart-Runbacks/static/media/runbacks.15cf41df84ab51fde18c.csv",
     "static/media/Peach Beach.png": "/Mario-Kart-Runbacks/static/media/Peach Beach.81ee863e1d9aaf261a09.png",
     "static/media/Waluigi Stadium.png": "/Mario-Kart-Runbacks/static/media/Waluigi Stadium.e1ea29caf87bba0757ca.png",
     "static/media/Bowser's Castle.png": "/Mario-Kart-Runbacks/static/media/Bowser's Castle.a16a0a00703e689ae707.png",
@@ -25,10 +25,10 @@
     "static/media/mushroom.png": "/Mario-Kart-Runbacks/static/media/mushroom.935026646202b60b07e1.png",
     "index.html": "/Mario-Kart-Runbacks/index.html",
     "main.e256da11.css.map": "/Mario-Kart-Runbacks/static/css/main.e256da11.css.map",
-    "main.5c99603b.js.map": "/Mario-Kart-Runbacks/static/js/main.5c99603b.js.map"
+    "main.f5537fc1.js.map": "/Mario-Kart-Runbacks/static/js/main.f5537fc1.js.map"
   },
   "entrypoints": [
     "static/css/main.e256da11.css",
-    "static/js/main.5c99603b.js"
+    "static/js/main.f5537fc1.js"
   ]
 }
