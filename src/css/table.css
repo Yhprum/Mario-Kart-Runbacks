@@ -51,3 +51,10 @@ table.table .sort-asc {
 .pagination {
   display: block;
 }
+
+table.sort-icons svg {
+  width: 16px;
+  height: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+}

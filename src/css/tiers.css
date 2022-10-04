@@ -35,17 +35,21 @@
 }
 
 .tier-s {
-  background-color: rgb(255, 127, 127);
+  background-color: rgb(255, 127, 127) !important;
 }
 
 .tier-a {
-  background-color: rgb(255, 191, 127);
+  background-color: rgb(255, 191, 127) !important;
 }
 
 .tier-b {
-  background-color: #FFFF7F;
+  background-color: #FFFF7F !important;
 }
 
 .tier-c {
-  background-color: rgb(191, 255, 127);
+  background-color: rgb(191, 255, 127) !important;
+}
+
+.tier-d {
+  background-color: rgb(127, 255, 255) !important;
 }

@@ -8,6 +8,7 @@ import RunbackDetails from "./views/RunbackDetails";
 import Graphs from "./views/Graphs";
 import Teams from "./views/Teams";
 import TrackTierList from "./views/tier_lists/TrackTierList";
+import KartStats from "./views/KartStats";
 
 function Router(props) {
   return (
@@ -18,6 +19,7 @@ function Router(props) {
       <Route path="/players" element={<Teams records={props.records} stats={props.stats} />} />
       <Route path="/runbacks/:runback" element={<RunbackDetails records={props.runbacks} />} />
       <Route path="/runbacks" element={<Runbacks records={props.records} />} />
+      <Route path="/karts/stats" element={<KartStats records={props.records} />} />
       <Route path="/graphs" element={<Graphs records={props.records} />} />
       <Route path="/tier-list/tracks" element={<TrackTierList />} />
       <Route path="/" element={<Records records={props.records} />} />

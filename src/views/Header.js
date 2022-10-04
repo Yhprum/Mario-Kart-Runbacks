@@ -24,6 +24,9 @@ function Header({ season, setSeason }) {
             <LinkContainer to="/tracks">
               <Nav.Link>Tracks</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/karts/stats">
+              <Nav.Link>Karts</Nav.Link>
+            </LinkContainer>
             <LinkContainer to="/players">
               <Nav.Link>Teams</Nav.Link>
             </LinkContainer>
@@ -40,21 +43,27 @@ function Header({ season, setSeason }) {
               <Nav.Link>Ryan</Nav.Link>
             </LinkContainer>
             <NavDropdown title="Track List" id="basic-nav-dropdown">
-              {Object.values(tracks).flat().map(track =>
-                <NavDropdown.Item key={track} onClick={() => navigate("/tracks/" + track)}>{track}</NavDropdown.Item>
-              )}
+              {Object.values(tracks)
+                .flat()
+                .map((track) => (
+                  <NavDropdown.Item key={track} onClick={() => navigate("/tracks/" + track)}>
+                    {track}
+                  </NavDropdown.Item>
+                ))}
             </NavDropdown>
             <NavDropdown title="Tier Lists" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={() => navigate("/tier-list/tracks")}>Tracks</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <Navbar.Text>
-              Filter:
-            </Navbar.Text>
-            <FormControl as="select"  value={season} onChange={e => setSeason(e.target.value)}>
+            <Navbar.Text>Filter:</Navbar.Text>
+            <FormControl as="select" value={season} onChange={(e) => setSeason(e.target.value)}>
               <option value={0}>All Seasons</option>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(season => <option key={season} value={season}>Season {season}</option>)}
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((season) => (
+                <option key={season} value={season}>
+                  Season {season}
+                </option>
+              ))}
             </FormControl>
           </Nav>
         </Navbar.Collapse>
