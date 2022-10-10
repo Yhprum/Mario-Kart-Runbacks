@@ -58,18 +58,18 @@ players.forEach((driver) => {
 });
 export const teams = teamsArr;
 
-export const karts = ["train", "blue", "pink", "green", "waluigi", "bullet", "daisy", "parade", "mario", "RattleBuggy"];
+export const karts = ["Barrel Train", "Toad Kart", "Toadette Kart", "Koopa Dasher", "Waluigi Racer", "Bullet Blaster", "Bloom Coach", "Parade Kart", "Red Fire", "Heart Coach"];
 export const kartColors = {
-  train: "rgb(240,104,0)",
-  blue: BLUE,
-  pink: "rgb(255,110,224)",
-  green: GREEN,
-  RattleBuggy: GREEN,
-  waluigi: "rgb(166,0,255)",
-  bullet: "rgb(100,100,100)",
-  daisy: "rgb(229,129,33)",
-  parade: "rgb(255,215,0)",
-  mario: RED,
+  "Barrel Train": "rgb(240,104,0)",
+  "Toad Kart": BLUE,
+  "Toadette Kart": "rgb(255,110,224)",
+  "Koopa Dasher": GREEN,
+  "Heart Coach": "rgb(255,110,224)",
+  "Waluigi Racer": "rgb(166,0,255)",
+  "Bullet Blaster": "rgb(100,100,100)",
+  "Bloom Coach": "rgb(229,129,33)",
+  "Parade Kart": "rgb(255,215,0)",
+  "Red Fire": RED,
 };
 
 export const trackAbbv = {
