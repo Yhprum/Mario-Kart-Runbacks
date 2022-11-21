@@ -91,5 +91,12 @@
   "90": ["LC", "WC", "MB", "DC", "WS", "PB", "DKM", "BC", "YC", "MCR", "DDD", "BP", "MCT", "SL", "DDJ", "RR"],
   "91": ["LC", "MCR", "MCT", "DDD", "SL", "PB", "DDJ", "WS", "BP", "MB", "WC", "DKM", "DC", "YC", "BC", "RR"],
   "92": ["LC", "PB", "DDJ", "BP", "YC", "MCR", "DC", "DDD", "MB", "DKM", "SL", "WS", "WC", "MCT", "BC", "RR"],
-  "93": ["LC", "BP", "DDD", "BC", "WC", "MB", "DKM", "YC", "WS", "SL", "DC", "PB", "MCT", "MCR", "DDJ", "RR"]
+  "93": ["LC", "BP", "DDD", "BC", "WC", "MB", "DKM", "YC", "WS", "SL", "DC", "PB", "MCT", "MCR", "DDJ", "RR"],
+  "94": ["LC", "DKM", "MCT", "WS", "DDD", "MCR", "BC", "PB", "MB", "BP", "DC", "SL", "YC", "DDJ", "WC", "RR"],
+  "95": ["LC", "MB", "SL", "BC", "DKM", "DC", "WC", "DDD", "YC", "MCR", "DDJ", "WS", "BP", "PB", "MCT", "RR"],
+  "96": ["LC", "MB", "WS", "DC", "MCT", "BC", "PB", "YC", "DDJ", "MCR", "DDD", "BP", "WC", "DKM", "SL", "RR"],
+  "97": ["LC", "YC", "MB", "PB", "DC", "BP", "MCT", "BC", "WC", "DDD", "SL", "WS", "DDJ", "DKM", "MCR", "RR"],
+  "98": ["LC", "PB", "MB", "MCR", "WS", "BP", "WC", "DDJ", "SL", "MCT", "BC", "DDD", "DKM", "DC", "YC", "RR"],
+  "99": ["LC", "WS", "BP", "DDJ", "PB", "DDD", "DC", "MCR", "MB", "SL", "WC", "MCT", "BC", "DKM", "YC", "RR"],
+  "100": ["LC", "BP", "YC", "DC", "DKM", "SL", "DDD", "PB", "MCT", "BC", "WS", "MCR", "DDJ", "MB", "WC", "RR"]
 }
