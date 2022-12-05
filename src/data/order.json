@@ -98,5 +98,6 @@
   "97": ["LC", "YC", "MB", "PB", "DC", "BP", "MCT", "BC", "WC", "DDD", "SL", "WS", "DDJ", "DKM", "MCR", "RR"],
   "98": ["LC", "PB", "MB", "MCR", "WS", "BP", "WC", "DDJ", "SL", "MCT", "BC", "DDD", "DKM", "DC", "YC", "RR"],
   "99": ["LC", "WS", "BP", "DDJ", "PB", "DDD", "DC", "MCR", "MB", "SL", "WC", "MCT", "BC", "DKM", "YC", "RR"],
-  "100": ["LC", "BP", "YC", "DC", "DKM", "SL", "DDD", "PB", "MCT", "BC", "WS", "MCR", "DDJ", "MB", "WC", "RR"]
+  "100": ["LC", "BP", "YC", "DC", "DKM", "SL", "DDD", "PB", "MCT", "BC", "WS", "MCR", "DDJ", "MB", "WC", "RR"],
+  "101": ["LC", "DDJ", "WC", "DDD", "SL", "MCR", "DC", "DKM", "BC", "MCT", "YC", "WS", "PB", "BP", "MB", "RR"]
 }
