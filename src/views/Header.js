@@ -59,7 +59,7 @@ function Header({ season, setSeason }) {
             <Navbar.Text>Filter:</Navbar.Text>
             <FormControl as="select" value={season} onChange={(e) => setSeason(e.target.value)}>
               <option value={0}>All Seasons</option>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((season) => (
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17].map((season) => (
                 <option key={season} value={season}>
                   Season {season}
                 </option>
